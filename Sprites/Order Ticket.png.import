@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Order Ticket.png-a40e55ee6265d72c53632ed03d2a0f7f.stex"
+
+[deps]
+
+source_file="res://Sprites/Order Ticket.png"
+source_md5="8610a5099091c523388535a1f9c83139"
+
+dest_files=[ "res://.import/Order Ticket.png-a40e55ee6265d72c53632ed03d2a0f7f.stex" ]
+dest_md5="d84a9b35b481a51a1287afd1c4dea982"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

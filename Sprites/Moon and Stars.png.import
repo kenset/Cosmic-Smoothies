@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Moon and Stars.png-4f868c2175b73a5a366519ad745a7b10.stex"
+
+[deps]
+
+source_file="res://Sprites/Moon and Stars.png"
+source_md5="e565d4bf81f607141d3986f7dc766b67"
+
+dest_files=[ "res://.import/Moon and Stars.png-4f868c2175b73a5a366519ad745a7b10.stex" ]
+dest_md5="389cb3fff2f618cc171c8f6ad46ffa09"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
