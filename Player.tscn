@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/chef/shooting/chef_shooting_sprite_0.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/chef/shooting/chef_shooting_sprite_1.png" type="Texture" id=5]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 30.0
@@ -68,7 +68,7 @@ _sections_unfolded = [ "Margin", "Rect" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 0, -20 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 

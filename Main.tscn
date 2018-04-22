@@ -1,12 +1,20 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Blender.tscn" type="PackedScene" id=4]
 [ext_resource path="res://FoodCart.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sign.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Health Bar (1).png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Order Ticket.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Apple.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Banana.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Stars.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Moon and Stars.png" type="Texture" id=12]
+[ext_resource path="res://Concrete.tscn" type="PackedScene" id=13]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 
 resource_name = "Enemy_Explosion_Shake_Anim"
 length = 0.3
@@ -25,15 +33,10 @@ tracks/0/keys = {
 "values": [ 25.0, 0.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 750, 30 )
-
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30, 210 )
+extents = Vector2( 750, 30 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -41,6 +44,11 @@ custom_solver_bias = 0.0
 extents = Vector2( 30, 210 )
 
 [sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30, 210 )
+
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 543, 30 )
@@ -68,8 +76,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0.632812, 0.47631, 0.47631, 1 )
-_sections_unfolded = [ "Anchor" ]
+color = Color( 0.301961, 0.45098, 0.576471, 1 )
+_sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -118,7 +126,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Enemy_Explosion_Shake_Anim = SubResource( 5 )
+anims/Enemy_Explosion_Shake_Anim = SubResource( 1 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -128,6 +136,7 @@ position = Vector2( 510, 844 )
 
 [node name="Floor" type="Area2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 0, -90 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -140,17 +149,17 @@ audio_bus_name = "Master"
 [node name="Floor" type="CollisionShape2D" parent="Floor" index="0"]
 
 position = Vector2( 510, 1020 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="LeftWall" type="CollisionShape2D" parent="Floor" index="1"]
 
 position = Vector2( -270, 840 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="RightWall" type="CollisionShape2D" parent="Floor" index="2"]
 
 position = Vector2( 1290, 840 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="FloorCollider" type="StaticBody2D" parent="Floor" index="3"]
 
@@ -166,12 +175,12 @@ bounce = 0.0
 
 position = Vector2( 510, 1020 )
 scale = Vector2( 1.38122, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 3.0
 one_shot = false
 autostart = false
 
@@ -181,9 +190,391 @@ position = Vector2( 1140, 630 )
 
 [node name="FoodCart" parent="." index="7" instance=ExtResource( 5 )]
 
-visible = false
-position = Vector2( -177, 813 )
+position = Vector2( -142, 798 )
 scale = Vector2( 1.42188, 1.42188 )
+
+[node name="Sign" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 515.921, 223.158 )
+scale = Vector2( 0.32, 0.32 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Background" type="Node2D" parent="." index="9"]
+
+editor/display_folded = true
+visible = false
+
+[node name="Health Bar (1)" type="Sprite" parent="Background" index="0"]
+
+position = Vector2( 841.946, 989.137 )
+texture = ExtResource( 7 )
+
+[node name="Order Ticket" type="Sprite" parent="Background" index="1"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( -174.177, 125.25 )
+scale = Vector2( 0.909762, 0.909762 )
+texture = ExtResource( 8 )
+
+[node name="Apple" type="Sprite" parent="Background/Order Ticket" index="0"]
+
+position = Vector2( -24.6247, -28.9591 )
+scale = Vector2( 0.400775, 0.400775 )
+texture = ExtResource( 9 )
+
+[node name="Banana" type="Sprite" parent="Background/Order Ticket" index="1"]
+
+position = Vector2( 10.6496, 47.4293 )
+scale = Vector2( 0.293265, 0.293265 )
+texture = ExtResource( 10 )
+
+[node name="Stars" type="Node2D" parent="Background" index="2"]
+
+editor/display_folded = true
+visible = false
+modulate = Color( 0.359375, 0.359375, 0.359375, 1 )
+position = Vector2( -81.8744, 185.988 )
+scale = Vector2( 0.617188, 0.617188 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Stars" type="Sprite" parent="Background/Stars" index="0"]
+
+position = Vector2( 1705.13, -75.5731 )
+texture = ExtResource( 11 )
+
+[node name="Stars2" type="Sprite" parent="Background/Stars" index="1"]
+
+position = Vector2( 1721.77, 197.298 )
+texture = ExtResource( 11 )
+
+[node name="Stars3" type="Sprite" parent="Background/Stars" index="2"]
+
+position = Vector2( 1999.05, 204.408 )
+texture = ExtResource( 11 )
+
+[node name="Stars4" type="Sprite" parent="Background/Stars" index="3"]
+
+position = Vector2( 1500.77, -117.312 )
+texture = ExtResource( 11 )
+
+[node name="Stars5" type="Sprite" parent="Background/Stars" index="4"]
+
+position = Vector2( 1523.88, 112.573 )
+texture = ExtResource( 11 )
+
+[node name="Stars6" type="Sprite" parent="Background/Stars" index="5"]
+
+position = Vector2( 1286.29, -80.5782 )
+texture = ExtResource( 11 )
+
+[node name="Stars7" type="Sprite" parent="Background/Stars" index="6"]
+
+position = Vector2( 1256.07, 139.827 )
+texture = ExtResource( 11 )
+
+[node name="Stars8" type="Sprite" parent="Background/Stars" index="7"]
+
+position = Vector2( 1089.58, -146.344 )
+texture = ExtResource( 11 )
+
+[node name="Stars9" type="Sprite" parent="Background/Stars" index="8"]
+
+position = Vector2( 1116.84, 102.5 )
+texture = ExtResource( 11 )
+
+[node name="Stars10" type="Sprite" parent="Background/Stars" index="9"]
+
+position = Vector2( 924.28, -58.6562 )
+texture = ExtResource( 11 )
+
+[node name="Stars11" type="Sprite" parent="Background/Stars" index="10"]
+
+position = Vector2( 849.626, -173.599 )
+texture = ExtResource( 11 )
+
+[node name="Stars12" type="Sprite" parent="Background/Stars" index="11"]
+
+position = Vector2( 888.73, 143.974 )
+texture = ExtResource( 11 )
+
+[node name="Stars13" type="Sprite" parent="Background/Stars" index="12"]
+
+position = Vector2( 664.178, 135.68 )
+texture = ExtResource( 11 )
+
+[node name="Stars14" type="Sprite" parent="Background/Stars" index="13"]
+
+position = Vector2( 669.51, -117.905 )
+texture = ExtResource( 11 )
+
+[node name="Stars15" type="Sprite" parent="Background/Stars" index="14"]
+
+position = Vector2( 517.241, -8.29483 )
+texture = ExtResource( 11 )
+
+[node name="Stars16" type="Sprite" parent="Background/Stars" index="15"]
+
+position = Vector2( 438.44, -167.674 )
+texture = ExtResource( 11 )
+
+[node name="Stars17" type="Sprite" parent="Background/Stars" index="16"]
+
+position = Vector2( 408.816, 178.339 )
+texture = ExtResource( 11 )
+
+[node name="Stars18" type="Sprite" parent="Background/Stars" index="17"]
+
+position = Vector2( 269.582, 8.29483 )
+texture = ExtResource( 11 )
+
+[node name="Stars19" type="Sprite" parent="Background/Stars" index="18"]
+
+position = Vector2( 249.437, -179.524 )
+texture = ExtResource( 11 )
+
+[node name="Stars20" type="Sprite" parent="Background/Stars" index="19"]
+
+position = Vector2( 162.934, 216.85 )
+texture = ExtResource( 11 )
+
+[node name="Stars21" type="Sprite" parent="Background/Stars" index="20"]
+
+texture = ExtResource( 11 )
+
+[node name="Stars22" type="Sprite" parent="Background/Stars" index="21"]
+
+position = Vector2( 77.0233, -194.336 )
+texture = ExtResource( 11 )
+
+[node name="Stars23" type="Sprite" parent="Background/Stars" index="22"]
+
+position = Vector2( -53.9163, 223.96 )
+texture = ExtResource( 11 )
+
+[node name="Stars24" type="Sprite" parent="Background/Stars" index="23"]
+
+position = Vector2( -150.492, -189.003 )
+texture = ExtResource( 11 )
+
+[node name="Stars25" type="Sprite" parent="Background/Stars" index="24"]
+
+position = Vector2( -193.151, 47.399 )
+texture = ExtResource( 11 )
+
+[node name="Moon and Stars" type="Sprite" parent="Background" index="3"]
+
+visible = false
+modulate = Color( 0.480469, 0.466261, 0.466261, 1 )
+position = Vector2( 1155.22, 134.004 )
+scale = Vector2( 0.731388, 0.731388 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Node2D" type="Node2D" parent="." index="10"]
+
+editor/display_folded = true
+modulate = Color( 0.0705882, 0.152941, 0.223529, 1 )
+position = Vector2( 1230, 990 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Concrete" parent="Node2D" index="0" instance=ExtResource( 13 )]
+
+position = Vector2( -1440, -60 )
+
+[node name="Concrete36" parent="Node2D" index="1" instance=ExtResource( 13 )]
+
+position = Vector2( -1440, 0 )
+
+[node name="Concrete2" parent="Node2D" index="2" instance=ExtResource( 13 )]
+
+position = Vector2( -1380, -60 )
+
+[node name="Concrete42" parent="Node2D" index="3" instance=ExtResource( 13 )]
+
+position = Vector2( -1380, 0 )
+
+[node name="Concrete3" parent="Node2D" index="4" instance=ExtResource( 13 )]
+
+position = Vector2( -1320, -60 )
+
+[node name="Concrete47" parent="Node2D" index="5" instance=ExtResource( 13 )]
+
+position = Vector2( -1320, 0 )
+
+[node name="Concrete4" parent="Node2D" index="6" instance=ExtResource( 13 )]
+
+position = Vector2( -1260, -60 )
+
+[node name="Concrete28" parent="Node2D" index="7" instance=ExtResource( 13 )]
+
+position = Vector2( -1260, 0 )
+
+[node name="Concrete5" parent="Node2D" index="8" instance=ExtResource( 13 )]
+
+position = Vector2( -1200, -60 )
+
+[node name="Concrete44" parent="Node2D" index="9" instance=ExtResource( 13 )]
+
+position = Vector2( -1200, 0 )
+
+[node name="Concrete6" parent="Node2D" index="10" instance=ExtResource( 13 )]
+
+position = Vector2( -1140, -60 )
+
+[node name="Concrete34" parent="Node2D" index="11" instance=ExtResource( 13 )]
+
+position = Vector2( -1140, 0 )
+
+[node name="Concrete7" parent="Node2D" index="12" instance=ExtResource( 13 )]
+
+position = Vector2( -1080, -60 )
+
+[node name="Concrete46" parent="Node2D" index="13" instance=ExtResource( 13 )]
+
+position = Vector2( -1080, 0 )
+
+[node name="Concrete8" parent="Node2D" index="14" instance=ExtResource( 13 )]
+
+position = Vector2( -1020, -60 )
+
+[node name="Concrete30" parent="Node2D" index="15" instance=ExtResource( 13 )]
+
+position = Vector2( -1020, 0 )
+
+[node name="Concrete9" parent="Node2D" index="16" instance=ExtResource( 13 )]
+
+position = Vector2( -960, -60 )
+
+[node name="Concrete41" parent="Node2D" index="17" instance=ExtResource( 13 )]
+
+position = Vector2( -960, 0 )
+
+[node name="Concrete10" parent="Node2D" index="18" instance=ExtResource( 13 )]
+
+position = Vector2( -900, -60 )
+
+[node name="Concrete33" parent="Node2D" index="19" instance=ExtResource( 13 )]
+
+position = Vector2( -900, 0 )
+
+[node name="Concrete11" parent="Node2D" index="20" instance=ExtResource( 13 )]
+
+position = Vector2( -840, -60 )
+
+[node name="Concrete49" parent="Node2D" index="21" instance=ExtResource( 13 )]
+
+position = Vector2( -840, 0 )
+
+[node name="Concrete12" parent="Node2D" index="22" instance=ExtResource( 13 )]
+
+position = Vector2( -780, -60 )
+
+[node name="Concrete27" parent="Node2D" index="23" instance=ExtResource( 13 )]
+
+position = Vector2( -780, 0 )
+
+[node name="Concrete13" parent="Node2D" index="24" instance=ExtResource( 13 )]
+
+position = Vector2( -720, -60 )
+
+[node name="Concrete26" parent="Node2D" index="25" instance=ExtResource( 13 )]
+
+position = Vector2( -720, 0 )
+
+[node name="Concrete14" parent="Node2D" index="26" instance=ExtResource( 13 )]
+
+position = Vector2( -660, -60 )
+
+[node name="Concrete45" parent="Node2D" index="27" instance=ExtResource( 13 )]
+
+position = Vector2( -660, 0 )
+
+[node name="Concrete15" parent="Node2D" index="28" instance=ExtResource( 13 )]
+
+position = Vector2( -600, -60 )
+
+[node name="Concrete32" parent="Node2D" index="29" instance=ExtResource( 13 )]
+
+position = Vector2( -600, 0 )
+
+[node name="Concrete16" parent="Node2D" index="30" instance=ExtResource( 13 )]
+
+position = Vector2( -540, -60 )
+
+[node name="Concrete43" parent="Node2D" index="31" instance=ExtResource( 13 )]
+
+position = Vector2( -540, 0 )
+
+[node name="Concrete17" parent="Node2D" index="32" instance=ExtResource( 13 )]
+
+position = Vector2( -480, -60 )
+
+[node name="Concrete37" parent="Node2D" index="33" instance=ExtResource( 13 )]
+
+position = Vector2( -480, 0 )
+
+[node name="Concrete18" parent="Node2D" index="34" instance=ExtResource( 13 )]
+
+position = Vector2( -420, -60 )
+
+[node name="Concrete31" parent="Node2D" index="35" instance=ExtResource( 13 )]
+
+position = Vector2( -420, 0 )
+
+[node name="Concrete19" parent="Node2D" index="36" instance=ExtResource( 13 )]
+
+position = Vector2( -360, -60 )
+
+[node name="Concrete29" parent="Node2D" index="37" instance=ExtResource( 13 )]
+
+position = Vector2( -360, 0 )
+
+[node name="Concrete20" parent="Node2D" index="38" instance=ExtResource( 13 )]
+
+position = Vector2( -300, -60 )
+
+[node name="Concrete38" parent="Node2D" index="39" instance=ExtResource( 13 )]
+
+position = Vector2( -300, 0 )
+
+[node name="Concrete21" parent="Node2D" index="40" instance=ExtResource( 13 )]
+
+position = Vector2( -240, -60 )
+
+[node name="Concrete40" parent="Node2D" index="41" instance=ExtResource( 13 )]
+
+position = Vector2( -240, 0 )
+
+[node name="Concrete22" parent="Node2D" index="42" instance=ExtResource( 13 )]
+
+position = Vector2( -180, -60 )
+
+[node name="Concrete39" parent="Node2D" index="43" instance=ExtResource( 13 )]
+
+position = Vector2( -180, 0 )
+
+[node name="Concrete23" parent="Node2D" index="44" instance=ExtResource( 13 )]
+
+position = Vector2( -120, -60 )
+
+[node name="Concrete35" parent="Node2D" index="45" instance=ExtResource( 13 )]
+
+position = Vector2( -120, 0 )
+
+[node name="Concrete24" parent="Node2D" index="46" instance=ExtResource( 13 )]
+
+position = Vector2( -60, -60 )
+
+[node name="Concrete50" parent="Node2D" index="47" instance=ExtResource( 13 )]
+
+position = Vector2( -60, 0 )
+
+[node name="Concrete25" parent="Node2D" index="48" instance=ExtResource( 13 )]
+
+position = Vector2( 0, -60 )
+
+[node name="Concrete48" parent="Node2D" index="49" instance=ExtResource( 13 )]
 
 [connection signal="shooting" from="Player" to="." method="_on_Player_shooting"]
 

@@ -76,8 +76,7 @@ func take_action():
 			var fruit = dropFruit()
 			if (fruit != null):
 				fruit.apply_impulse(Vector2(0, 0), Vector2(30, -60))
-#			fruit.apply_impulse(Vector2(0, 0), Vector2(1500, -3500))
-#			fruit.apply_impulse(Vector2(0, 0), Vector2(1, -1))
+				fruit.set_collision_mask_bit(0, true)
 
 func move(delta):
 	var velocity = Vector2() 

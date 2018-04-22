@@ -1,0 +1,240 @@
+diff --git a/Main.tscn b/Main.tscn
+index 9247b2b..11ff12e 100644
+--- a/Main.tscn
++++ b/Main.tscn
+@@ -1,10 +1,17 @@
+-[gd_scene load_steps=11 format=2]
++[gd_scene load_steps=18 format=2]
+ 
+ [ext_resource path="res://Main.gd" type="Script" id=1]
+ [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
+ [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+ [ext_resource path="res://Blender.tscn" type="PackedScene" id=4]
+ [ext_resource path="res://FoodCart.tscn" type="PackedScene" id=5]
++[ext_resource path="res://Sprites/Moon and Stars.png" type="Texture" id=6]
++[ext_resource path="res://Sprites/Stars.png" type="Texture" id=7]
++[ext_resource path="res://Sprites/Order Ticket.png" type="Texture" id=8]
++[ext_resource path="res://Sprites/Apple.png" type="Texture" id=9]
++[ext_resource path="res://Sprites/Banana.png" type="Texture" id=10]
++[ext_resource path="res://Sprites/Health Bar (1).png" type="Texture" id=11]
++[ext_resource path="res://Sign.tscn" type="PackedScene" id=12]
+ 
+ [sub_resource type="Animation" id=5]
+ 
+@@ -45,7 +52,7 @@ extents = Vector2( 30, 210 )
+ custom_solver_bias = 0.0
+ extents = Vector2( 543, 30 )
+ 
+-[node name="Main" type="Node"]
++[node name="Main" type="Node" index="0"]
+ 
+ script = ExtResource( 1 )
+ SHAKE = 25.0
+@@ -68,7 +75,7 @@ mouse_filter = 0
+ mouse_default_cursor_shape = 0
+ size_flags_horizontal = 1
+ size_flags_vertical = 1
+-color = Color( 0.632812, 0.47631, 0.47631, 1 )
++color = Color( 0.151808, 0.161266, 0.238281, 1 )
+ _sections_unfolded = [ "Anchor" ]
+ __meta__ = {
+ "_edit_lock_": true
+@@ -128,6 +135,7 @@ position = Vector2( 510, 844 )
+ 
+ [node name="Floor" type="Area2D" parent="." index="4"]
+ 
++editor/display_folded = true
+ position = Vector2( 0, -90 )
+ input_pickable = true
+ gravity_vec = Vector2( 0, 1 )
+@@ -171,7 +179,7 @@ shape = SubResource( 4 )
+ [node name="EnemySpawnTimer" type="Timer" parent="." index="5"]
+ 
+ process_mode = 1
+-wait_time = 1.0
++wait_time = 3.0
+ one_shot = false
+ autostart = false
+ 
+@@ -181,10 +189,179 @@ position = Vector2( 1140, 630 )
+ 
+ [node name="FoodCart" parent="." index="7" instance=ExtResource( 5 )]
+ 
+-visible = false
+-position = Vector2( -177, 813 )
++position = Vector2( -142, 798 )
+ scale = Vector2( 1.42188, 1.42188 )
+ 
++[node name="Moon and Stars" type="Sprite" parent="." index="8"]
++
++modulate = Color( 0.480469, 0.466261, 0.466261, 1 )
++position = Vector2( 1155.22, 134.004 )
++scale = Vector2( 0.731388, 0.731388 )
++texture = ExtResource( 6 )
++_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
++
++[node name="Stars" type="Node2D" parent="." index="9"]
++
++editor/display_folded = true
++modulate = Color( 0.359375, 0.359375, 0.359375, 1 )
++position = Vector2( -81.8744, 185.988 )
++scale = Vector2( 0.617188, 0.617188 )
++_sections_unfolded = [ "Visibility" ]
++
++[node name="Stars" type="Sprite" parent="Stars" index="0"]
++
++position = Vector2( 1705.13, -75.5731 )
++texture = ExtResource( 7 )
++
++[node name="Stars2" type="Sprite" parent="Stars" index="1"]
++
++position = Vector2( 1721.77, 197.298 )
++texture = ExtResource( 7 )
++
++[node name="Stars3" type="Sprite" parent="Stars" index="2"]
++
++position = Vector2( 1999.05, 204.408 )
++texture = ExtResource( 7 )
++
++[node name="Stars4" type="Sprite" parent="Stars" index="3"]
++
++position = Vector2( 1500.77, -117.312 )
++texture = ExtResource( 7 )
++
++[node name="Stars5" type="Sprite" parent="Stars" index="4"]
++
++position = Vector2( 1523.88, 112.573 )
++texture = ExtResource( 7 )
++
++[node name="Stars6" type="Sprite" parent="Stars" index="5"]
++
++position = Vector2( 1286.29, -80.5782 )
++texture = ExtResource( 7 )
++
++[node name="Stars7" type="Sprite" parent="Stars" index="6"]
++
++position = Vector2( 1256.07, 139.827 )
++texture = ExtResource( 7 )
++
++[node name="Stars8" type="Sprite" parent="Stars" index="7"]
++
++position = Vector2( 1089.58, -146.344 )
++texture = ExtResource( 7 )
++
++[node name="Stars9" type="Sprite" parent="Stars" index="8"]
++
++position = Vector2( 1116.84, 102.5 )
++texture = ExtResource( 7 )
++
++[node name="Stars10" type="Sprite" parent="Stars" index="9"]
++
++position = Vector2( 924.28, -58.6562 )
++texture = ExtResource( 7 )
++
++[node name="Stars11" type="Sprite" parent="Stars" index="10"]
++
++position = Vector2( 849.626, -173.599 )
++texture = ExtResource( 7 )
++
++[node name="Stars12" type="Sprite" parent="Stars" index="11"]
++
++position = Vector2( 888.73, 143.974 )
++texture = ExtResource( 7 )
++
++[node name="Stars13" type="Sprite" parent="Stars" index="12"]
++
++position = Vector2( 664.178, 135.68 )
++texture = ExtResource( 7 )
++
++[node name="Stars14" type="Sprite" parent="Stars" index="13"]
++
++position = Vector2( 669.51, -117.905 )
++texture = ExtResource( 7 )
++
++[node name="Stars15" type="Sprite" parent="Stars" index="14"]
++
++position = Vector2( 517.241, -8.29483 )
++texture = ExtResource( 7 )
++
++[node name="Stars16" type="Sprite" parent="Stars" index="15"]
++
++position = Vector2( 438.44, -167.674 )
++texture = ExtResource( 7 )
++
++[node name="Stars17" type="Sprite" parent="Stars" index="16"]
++
++position = Vector2( 408.816, 178.339 )
++texture = ExtResource( 7 )
++
++[node name="Stars18" type="Sprite" parent="Stars" index="17"]
++
++position = Vector2( 269.582, 8.29483 )
++texture = ExtResource( 7 )
++
++[node name="Stars19" type="Sprite" parent="Stars" index="18"]
++
++position = Vector2( 249.437, -179.524 )
++texture = ExtResource( 7 )
++
++[node name="Stars20" type="Sprite" parent="Stars" index="19"]
++
++position = Vector2( 162.934, 216.85 )
++texture = ExtResource( 7 )
++
++[node name="Stars21" type="Sprite" parent="Stars" index="20"]
++
++texture = ExtResource( 7 )
++
++[node name="Stars22" type="Sprite" parent="Stars" index="21"]
++
++position = Vector2( 77.0233, -194.336 )
++texture = ExtResource( 7 )
++
++[node name="Stars23" type="Sprite" parent="Stars" index="22"]
++
++position = Vector2( -53.9163, 223.96 )
++texture = ExtResource( 7 )
++
++[node name="Stars24" type="Sprite" parent="Stars" index="23"]
++
++position = Vector2( -150.492, -189.003 )
++texture = ExtResource( 7 )
++
++[node name="Stars25" type="Sprite" parent="Stars" index="24"]
++
++position = Vector2( -193.151, 47.399 )
++texture = ExtResource( 7 )
++
++[node name="Order Ticket" type="Sprite" parent="." index="10"]
++
++position = Vector2( -174.177, 125.25 )
++scale = Vector2( 0.909762, 0.909762 )
++texture = ExtResource( 8 )
++
++[node name="Apple" type="Sprite" parent="Order Ticket" index="0"]
++
++position = Vector2( -24.6247, -28.9591 )
++scale = Vector2( 0.400775, 0.400775 )
++texture = ExtResource( 9 )
++
++[node name="Banana" type="Sprite" parent="Order Ticket" index="1"]
++
++position = Vector2( 10.6496, 47.4293 )
++scale = Vector2( 0.293265, 0.293265 )
++texture = ExtResource( 10 )
++
++[node name="Health Bar (1)" type="Sprite" parent="." index="11"]
++
++position = Vector2( 841.946, 989.137 )
++texture = ExtResource( 11 )
++
++[node name="Sign" parent="." index="12" instance=ExtResource( 12 )]
++
++modulate = Color( 0.738281, 0.738281, 0.738281, 1 )
++position = Vector2( 515.921, 223.158 )
++scale = Vector2( 0.32, 0.32 )
++_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
++
+ [connection signal="shooting" from="Player" to="." method="_on_Player_shooting"]
+ 
+ [connection signal="stop_shooting" from="Player" to="." method="_on_Player_stop_shooting"]
