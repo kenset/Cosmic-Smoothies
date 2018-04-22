@@ -9,7 +9,6 @@ var bulletScene = preload("res://Bullet.tscn")
 
 var isCatching = false
 var isHoldingFruit = false
-var heldFruit
 var startingPos
 
 func _ready():
@@ -33,7 +32,6 @@ func _process(delta):
 func dropFruit():
 	if ($Fruit != null):
 		var fruit = $Fruit
-		print(fruit.get_name())
 		
 		var main = get_tree().get_root().get_node("Main")
 		var pos = fruit.get_global_transform()
@@ -42,9 +40,12 @@ func dropFruit():
 		main.add_child(fruit)
 		fruit.set_owner(main)
 
-		fruit.mode = RigidBody2D.MODE_RIGID
+#		fruit.mode = RigidBody2D.MODE_RIGID
+		fruit.mode = RigidBody2D.MODE_CHARACTER
 		fruit.global_transform = pos
 		isHoldingFruit = false
+		
+		return fruit
 
 func startShooting():
 	isCatching = false
@@ -62,13 +63,20 @@ func resetPlayer():
 	position = startingPos
 
 func take_action():
-	if (Input.is_action_pressed("ui_shoot") && !isCatching):
-		emit_signal("shooting")
-		var bulletInstance = bulletScene.instance()
-		bulletInstance.position = $AnimatedSprite/Gunpoint.global_position
-		get_tree().get_root().add_child(bulletInstance)
+	if (!isCatching):
+		if (Input.is_action_pressed("ui_action")):
+			emit_signal("shooting")
+			var bulletInstance = bulletScene.instance()
+			bulletInstance.position = $AnimatedSprite/Gunpoint.global_position
+			get_tree().get_root().add_child(bulletInstance)
+		else:
+			emit_signal("stop_shooting")
 	else:
-		emit_signal("stop_shooting")
+		if (Input.is_action_pressed("ui_action") && isHoldingFruit):
+			var fruit = dropFruit()
+			fruit.apply_impulse(Vector2(0, 0), Vector2(30, -60))
+#			fruit.apply_impulse(Vector2(0, 0), Vector2(1500, -3500))
+#			fruit.apply_impulse(Vector2(0, 0), Vector2(1, -1))
 
 func move(delta):
 	var velocity = Vector2() 
@@ -106,7 +114,6 @@ func _on_CatchArea_body_entered(body):
 			self.add_child(fruit)
 			fruit.set_owner(self)
 			fruit.set_name("Fruit")
-			heldFruit = fruit
 			isHoldingFruit = true
 			
 			fruit.mode = RigidBody2D.MODE_STATIC

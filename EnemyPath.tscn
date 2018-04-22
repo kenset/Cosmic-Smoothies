@@ -8,8 +8,9 @@ bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 60, 90, 2.19742, -204.36, -5.12732, 119.393, 510, 180, -5.12732, -121.591, 0.732474, 122.323, 90, 270, -5.12732, -123.788, 3.66237, 200.698, 480, 389.068, -9.52216, -161.877, -18.3119, 238.787, 90, 509.324, -89.3619, 47.6108, 0, 0, 480, 599.516 )
 }
+_sections_unfolded = [ "Resource" ]
 
-[node name="EnemyPath" type="Path2D" groups=[
+[node name="EnemyPath" type="Path2D" index="0" groups=[
 "enemies",
 ]]
 
