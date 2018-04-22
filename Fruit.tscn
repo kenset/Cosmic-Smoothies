@@ -1,9 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fruit.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Strawberry.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Banana.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Apple.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/fruit_splats/banana_splat_sprite_0.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/fruit_splats/banana_splat_sprite_1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/fruit_splats/blueberry_splat_sprite_0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/fruit_splats/blueberry_splat_sprite_1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/fruit_splats/apple_splat_sprite_0.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/fruit_splats/apple_splat_sprite_1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Blueberry.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Apple.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/fruit_splats/strawberry_splat_sprite_0.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/fruit_splats/strawberry_splat_sprite_1.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -18,9 +27,34 @@ animations = [ {
 "name": "banana",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "banana_splat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "blueberry_splat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "apple_splat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "blueberry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "apple",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "strawberry_splat",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -29,9 +63,11 @@ _sections_unfolded = [ "Resource" ]
 
 custom_solver_bias = 0.0
 radius = 16.5592
-height = 14.7712
+height = 2.96284
 
-[node name="Fruit" type="RigidBody2D"]
+[node name="Fruit" type="RigidBody2D" groups=[
+"fruit",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -56,9 +92,10 @@ _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Tran
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-scale = Vector2( 0.15, 0.15 )
+scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-animation = "apple"
+animation = "strawberry"
+playing = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]

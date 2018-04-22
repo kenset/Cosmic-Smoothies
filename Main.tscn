@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Blender.tscn" type="PackedScene" id=4]
+[ext_resource path="res://FoodCart.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,7 +42,7 @@ anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 990.0
-margin_bottom = 840.0
+margin_bottom = 900.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -85,11 +87,12 @@ __meta__ = {
 
 [node name="Player" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 510, 780 )
+position = Vector2( 510, 844 )
 
 [node name="Floor" type="Area2D" parent="." index="4"]
 
-position = Vector2( 0, -150 )
+editor/display_folded = true
+position = Vector2( 0, -90 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -97,6 +100,10 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Floor" type="CollisionShape2D" parent="Floor" index="0"]
 
@@ -135,11 +142,22 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
+[node name="Blender" parent="." index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 870, 630 )
+
+[node name="FoodCart" parent="." index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 90, 810 )
+scale = Vector2( 1.42188, 1.42188 )
+
 [connection signal="shooting" from="Player" to="." method="_on_Player_shooting"]
 
 [connection signal="stop_shooting" from="Player" to="." method="_on_Player_stop_shooting"]
 
 [connection signal="area_entered" from="Floor" to="." method="_on_Floor_area_entered"]
+
+[connection signal="body_entered" from="Floor" to="." method="_on_Floor_body_entered"]
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
 

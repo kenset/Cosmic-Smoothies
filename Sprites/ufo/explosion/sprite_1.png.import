@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/New Piskel.png-a1fae72dc62a1ea52e4aacf5f32efb0f.stex"
+path="res://.import/sprite_1.png-2a65919bcc06ad6ce5004b5f58094cbf.stex"
 
 [deps]
 
-source_file="res://Sprites/New Piskel.png"
-source_md5="0d6a6a7b0ac06d071cc8f8d50d407ef2"
+source_file="res://Sprites/ufo/explosion/sprite_1.png"
+source_md5="6757a997b97a55915278e594f696419f"
 
-dest_files=[ "res://.import/New Piskel.png-a1fae72dc62a1ea52e4aacf5f32efb0f.stex" ]
-dest_md5="f6e34e4838cbdca08fb29c1f5a0f14c4"
+dest_files=[ "res://.import/sprite_1.png-2a65919bcc06ad6ce5004b5f58094cbf.stex" ]
+dest_md5="bbaec811a1b7a16ada663ee2534b5ad0"
 
 [params]
 

@@ -7,10 +7,10 @@ path="res://.import/Apple.png-09631c2bb3e449d2e2435cdd31d2303e.stex"
 [deps]
 
 source_file="res://Sprites/Apple.png"
-source_md5="6cbaf82a2eee817d613f5bf142bf79dc"
+source_md5="05a67a0531d8234e583f3eed605e3ec3"
 
 dest_files=[ "res://.import/Apple.png-09631c2bb3e449d2e2435cdd31d2303e.stex" ]
-dest_md5="9561835f13bc815bb931992dfea3a714"
+dest_md5="51ebdc4f99954e8cf5466f38b68e2a85"
 
 [params]
 

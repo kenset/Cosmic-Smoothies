@@ -20,16 +20,17 @@ func _process(delta):
 
 func _reload_game():
 	for child in self.get_children():
-		if (child.is_in_group("enemies")):
+		if (child.is_in_group("enemies") || child.is_in_group("fruit")):
 			child.queue_free()
+	$Player.resetPlayer()
 	start_game()
 
 func start_game():
 	$HUD/HealthBar.value = 100
 	$HUD.reset()
 	
-	spawn_enemy()
-#	$EnemySpawnTimer.start()
+#	spawn_enemy()
+	$EnemySpawnTimer.start()
 
 func spawn_enemy():
 	var enemyPath = enemyPathScene.instance()
@@ -61,6 +62,7 @@ func _on_Player_stop_shooting():
 
 func _on_Floor_area_entered(area):
 	if (area.is_in_group("enemies")):
+		area.velocity = Vector2(0, 0)
 		take_damage(area.DAMAGE_GIVEN)
 		area.destroy_enemy()
 
@@ -69,5 +71,6 @@ func _on_EnemySpawnTimer_timeout():
 	spawn_enemy()
 
 
-func _on_AreaDetector_area_entered(area):
-	pass # replace with function body
+func _on_Floor_body_entered(body):
+	if (body.is_in_group("fruit")):
+		body.splat()

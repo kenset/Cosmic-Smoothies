@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Food Cart.png-7a47385afa32b233953e792d4e2e99a4.stex"
+path="res://.import/banana_splat_sprite_1.png-83afd4118a78fd8de12f7584c0896fc3.stex"
 
 [deps]
 
-source_file="res://Sprites/Food Cart.png"
-source_md5="25c766db9a06a4f3faf2d5745352c47c"
+source_file="res://Sprites/fruit_splats/banana_splat_sprite_1.png"
+source_md5="e232e845a2786198e82e5dd03fff7b02"
 
-dest_files=[ "res://.import/Food Cart.png-7a47385afa32b233953e792d4e2e99a4.stex" ]
-dest_md5="cbf7c182d19b7d4efd15f99138f9f345"
+dest_files=[ "res://.import/banana_splat_sprite_1.png-83afd4118a78fd8de12f7584c0896fc3.stex" ]
+dest_md5="ed6a94eb6c3f33608d0892a0c6984fd3"
 
 [params]
 

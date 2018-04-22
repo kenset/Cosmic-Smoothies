@@ -4,11 +4,10 @@ export (int) var DAMAGE_GIVEN = 25
 export (int) var SPEED = 50
 export (int) var HEALTH = 5
 
-var fruitScene = preload("res://Fruit.tscn")
-
 var attack = false;
 var velocity = Vector2()
 var parent
+var holdingFruit = true
 
 func _ready():
 	parent = self.get_parent().get_parent()
@@ -41,19 +40,22 @@ func _on_Enemy_area_entered(area):
 			destroy_enemy()
 
 func drop_fruit():
-	var fruit = $Fruit
-	var main = get_tree().get_root().get_node("Main")
-	var pos = fruit.get_global_transform()
-
-	self.remove_child(fruit)
-	main.add_child(fruit)
-	fruit.set_owner(main)
+	if (holdingFruit):
+		var fruit = $Fruit
+		var main = get_tree().get_root().get_node("Main")
+		var pos = fruit.get_global_transform()
 	
-	fruit.mode = RigidBody2D.MODE_RIGID
-	fruit.global_transform = pos
+		self.remove_child(fruit)
+		main.add_child(fruit)
+		fruit.set_owner(main)
+		
+		fruit.mode = RigidBody2D.MODE_RIGID
+		fruit.global_transform = pos
+		holdingFruit = false
 
 func destroy_enemy():
 	drop_fruit()
+	parent.SPEED = 0.0
+	$AnimatedSprite.animation = "explosion"
+	yield($AnimatedSprite, "animation_finished" )
 	parent.queue_free()
-#	hide()
-#	queue_free()
