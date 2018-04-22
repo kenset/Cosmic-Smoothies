@@ -19,3 +19,4 @@ func splat():
 	$AnimatedSprite.scale *= 2
 	$AnimatedSprite.position.y = -30
 	$AnimatedSprite.animation = splatTypes[fruitIndex]
+	self.set_collision_mask_bit(0, false)
