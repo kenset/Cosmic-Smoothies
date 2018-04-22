@@ -9,8 +9,12 @@ func _ready():
 	randomize()
 	$Camera.make_current()
 	$HUD.connect("restart_game", self, "_reload_game")
-
+	set_process_input(true)
 	start_game()
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 
 func _process(delta):
 	$Camera.set_offset(Vector2( \
@@ -34,7 +38,7 @@ func start_game():
 
 func spawn_enemy():
 	var enemyPath = enemyPathScene.instance()
-	enemyPath.position.x += randi() % 500 - 250
+	enemyPath.position.x += randi() % 750 - 500
 	if (randi() % 2 == 1):
 		enemyPath.scale.x = -1
 		enemyPath.position.x = 750
@@ -66,7 +70,6 @@ func _on_Player_stop_shooting():
 
 func shake_screen(screenshake):
 	SHAKE = screenshake
-	print(SHAKE)
 
 func _explosion_shake_screen():
 	$Camera/AnimationPlayer.play("Enemy_Explosion_Shake_Anim")

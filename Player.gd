@@ -28,7 +28,7 @@ func _input(event):
 
 func _process(delta):
 	move(delta)
-	shoot()
+	take_action()
 
 func dropFruit():
 	if ($Fruit != null):
@@ -61,7 +61,7 @@ func resetPlayer():
 	startShooting()
 	position = startingPos
 
-func shoot():
+func take_action():
 	if (Input.is_action_pressed("ui_shoot") && !isCatching):
 		emit_signal("shooting")
 		var bulletInstance = bulletScene.instance()

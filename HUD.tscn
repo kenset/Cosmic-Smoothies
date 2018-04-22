@@ -27,6 +27,10 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 510.0 ],
+"_edit_vertical_guides_": [ 810.0 ]
+}
 
 [node name="HealthBar" type="ProgressBar" parent="." index="0"]
 
@@ -58,27 +62,23 @@ _sections_unfolded = [ "Percent" ]
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Anchor" ]
 
 [node name="GameOverLabel" type="Label" parent="GameOver" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 360.0
-margin_top = 330.0
-margin_right = 675.0
-margin_bottom = 395.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -150.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -87,22 +87,24 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 text = "Game Over"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Visibility", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "Visibility", "custom_fonts" ]
 
 [node name="RestartButton" type="Button" parent="GameOver" index="1"]
 
 pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 390.0
-margin_top = 450.0
-margin_right = 647.0
-margin_bottom = 521.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 677.0
+margin_top = 529.0
+margin_right = -676.0
+margin_bottom = -480.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -118,7 +120,7 @@ group = null
 text = "Restart"
 flat = false
 align = 1
-_sections_unfolded = [ "Pause", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "custom_fonts" ]
 
 [connection signal="pressed" from="GameOver/RestartButton" to="." method="_on_RestartButton_pressed"]
 
