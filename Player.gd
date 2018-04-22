@@ -74,7 +74,8 @@ func take_action():
 	else:
 		if (Input.is_action_pressed("ui_action") && isHoldingFruit):
 			var fruit = dropFruit()
-			fruit.apply_impulse(Vector2(0, 0), Vector2(30, -60))
+			if (fruit != null):
+				fruit.apply_impulse(Vector2(0, 0), Vector2(30, -60))
 #			fruit.apply_impulse(Vector2(0, 0), Vector2(1500, -3500))
 #			fruit.apply_impulse(Vector2(0, 0), Vector2(1, -1))
 

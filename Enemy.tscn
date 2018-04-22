@@ -80,7 +80,6 @@ gravity_scale = 1.0
 scale = Vector2( 0.46875, 0.46875 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 

@@ -10,7 +10,7 @@ _data = {
 }
 _sections_unfolded = [ "Resource" ]
 
-[node name="EnemyPath" type="Path2D" index="0" groups=[
+[node name="EnemyPath" type="Path2D" groups=[
 "enemies",
 ]]
 

@@ -43,9 +43,9 @@ extents = Vector2( 30, 210 )
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 540, 30 )
+extents = Vector2( 543, 30 )
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 SHAKE = 25.0
@@ -128,7 +128,6 @@ position = Vector2( 510, 844 )
 
 [node name="Floor" type="Area2D" parent="." index="4"]
 
-editor/display_folded = true
 position = Vector2( 0, -90 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -137,10 +136,6 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="Floor" type="CollisionShape2D" parent="Floor" index="0"]
 
@@ -149,7 +144,7 @@ shape = SubResource( 1 )
 
 [node name="LeftWall" type="CollisionShape2D" parent="Floor" index="1"]
 
-position = Vector2( -267, 843 )
+position = Vector2( -270, 840 )
 shape = SubResource( 2 )
 
 [node name="RightWall" type="CollisionShape2D" parent="Floor" index="2"]
@@ -186,6 +181,7 @@ position = Vector2( 1140, 630 )
 
 [node name="FoodCart" parent="." index="7" instance=ExtResource( 5 )]
 
+visible = false
 position = Vector2( -177, 813 )
 scale = Vector2( 1.42188, 1.42188 )
 

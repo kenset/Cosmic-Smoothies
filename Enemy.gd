@@ -51,7 +51,7 @@ func drop_fruit():
 		main.add_child(fruit)
 		fruit.set_owner(main)
 		
-		fruit.mode = RigidBody2D.MODE_RIGID
+		fruit.mode = RigidBody2D.MODE_CHARACTER
 		fruit.global_transform = pos
 		holdingFruit = false
 
