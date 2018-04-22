@@ -41,9 +41,13 @@ func spawn_enemy():
 	
 	add_child(enemyPath)
 	var enemy = enemyScene.instance()
+	enemy.connect("enemy_died", self, "_explosion_shake_screen")
+		
 	enemyPath.get_node("PathFollow2D").add_child(enemy)
 	enemyPath.connect("path_completed", enemy, "_path_completed")
 
+func _trey_test(args):
+	print(args)
 
 func take_damage(damage):
 	$HUD/HealthBar.value -= damage
@@ -55,10 +59,17 @@ func game_over():
 	$EnemySpawnTimer.stop()
 
 func _on_Player_shooting():
-	SHAKE = 5.0
+	shake_screen(5.0)
 
 func _on_Player_stop_shooting():
-	SHAKE = 0.0
+	shake_screen(0.0)
+
+func shake_screen(screenshake):
+	SHAKE = screenshake
+	print(SHAKE)
+
+func _explosion_shake_screen():
+	$Camera/AnimationPlayer.play("Enemy_Explosion_Shake_Anim")
 
 func _on_Floor_area_entered(area):
 	if (area.is_in_group("enemies")):

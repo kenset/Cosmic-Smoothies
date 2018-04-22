@@ -4,6 +4,8 @@ export (int) var DAMAGE_GIVEN = 25
 export (int) var SPEED = 50
 export (int) var HEALTH = 5
 
+signal enemy_died
+
 var attack = false;
 var velocity = Vector2()
 var parent
@@ -56,6 +58,7 @@ func drop_fruit():
 func destroy_enemy():
 	drop_fruit()
 	parent.SPEED = 0.0
+	emit_signal("enemy_died")
 	$AnimatedSprite.animation = "explosion"
 	yield($AnimatedSprite, "animation_finished" )
 	parent.queue_free()

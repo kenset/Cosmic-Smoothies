@@ -7,10 +7,10 @@ path="res://.import/sprite_3.png-826d51fbfa690d9de74130c2f364538b.stex"
 [deps]
 
 source_file="res://Sprites/ufo/explosion/sprite_3.png"
-source_md5="95df228dec7a73de740c12c42d908f24"
+source_md5="cdf0e38fc5c464451e89aff399957274"
 
 dest_files=[ "res://.import/sprite_3.png-826d51fbfa690d9de74130c2f364538b.stex" ]
-dest_md5="c60c63318091d35d157ca59bdc703864"
+dest_md5="e1be5a52eccd0af5c33bb2d1c7b023ba"
 
 [params]
 

@@ -1,10 +1,29 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Blender.tscn" type="PackedScene" id=4]
 [ext_resource path="res://FoodCart.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "Enemy_Explosion_Shake_Anim"
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:SHAKE")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 25.0, 0.0 ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,7 +48,7 @@ extents = Vector2( 540, 30 )
 [node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
-SHAKE = 0.0
+SHAKE = 25.0
 
 [node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -84,6 +103,24 @@ _sections_unfolded = [ "Offset" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ScreenshakeTimer" type="Timer" parent="Camera" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera" index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Enemy_Explosion_Shake_Anim = SubResource( 5 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="Player" parent="." index="3" instance=ExtResource( 3 )]
 
