@@ -5,6 +5,7 @@ func _ready():
 	set_process_input(true)
 	$MainMenu/Control.show()
 	$HowToPlay/Control.hide()
+	$Credits/Control.hide()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -14,7 +15,6 @@ func _input(event):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
 
 func _on_StartGame_pressed():
 	get_tree().change_scene("res://Main.tscn")
@@ -26,4 +26,10 @@ func _on_HowToPlay_pressed():
 
 func _on_Back_pressed():
 	$HowToPlay/Control.hide()
+	$Credits/Control.hide()
 	$MainMenu/Control.show()
+
+
+func _on_Credits_pressed():
+	$MainMenu/Control.hide()
+	$Credits/Control.show()

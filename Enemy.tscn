@@ -47,6 +47,7 @@ _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Tran
 DAMAGE_GIVEN = 25
 SPEED = 500
 HEALTH = 5
+HIDE_FRUIT = false
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]
 

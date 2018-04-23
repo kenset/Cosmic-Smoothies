@@ -3,6 +3,8 @@ extends Area2D
 export (int) var DAMAGE_GIVEN = 25
 export (int) var SPEED = 50
 export (int) var HEALTH = 5
+export (bool) var HIDE_FRUIT = false
+
 
 signal enemy_died
 
@@ -19,6 +21,8 @@ var parent
 var holdingFruit = true
 
 func _ready():
+	if (HIDE_FRUIT):
+		$Fruit.hide()
 	parent = self.get_parent().get_parent()
 	if (parent.scale.x == -1):
 		$Fruit.scale.x *= -1
