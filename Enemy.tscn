@@ -30,7 +30,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Enemy" type="Area2D" index="0" groups=[
+[node name="Enemy" type="Area2D" groups=[
 "enemies",
 ]]
 
@@ -81,7 +81,7 @@ position = Vector2( 1, 40 )
 scale = Vector2( 0.46875, 0.46875 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

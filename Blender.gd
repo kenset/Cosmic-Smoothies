@@ -18,6 +18,7 @@ func _ready():
 func blend():
 	$AnimatedSprite.play("closing")
 	$ButtonArea/ButtonCollider.disabled = true
+	$ClosedLidStaticBody/ClosedLidCollider.disabled = false
 	yield($AnimatedSprite, "animation_finished")
 	get_tree().call_group("orders", "expect_some_fruit", get_fruits_to_blend())
 	get_tree().call_group("fruit_to_blend", "blend_yourself")
@@ -27,6 +28,7 @@ func blend():
 
 func reset_blender():
 	$AnimatedSprite.play("open")
+	$ClosedLidStaticBody/ClosedLidCollider.disabled = true
 
 func throw_smoothie():
 	var smoothieInstance = fruitScene.instance()
@@ -73,6 +75,7 @@ func _on_FullBlenderTimer_timeout():
 	$AnimatedSprite.play("draining")
 	yield($AnimatedSprite, "animation_finished")
 	
+	$ClosedLidStaticBody/ClosedLidCollider.disabled = true
 	$AnimatedSprite.play("opening")
 	yield($AnimatedSprite, "animation_finished")
 	$AnimatedSprite.play("open")

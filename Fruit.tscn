@@ -71,7 +71,7 @@ custom_solver_bias = 0.0
 radius = 16.5592
 height = 2.96284
 
-[node name="Fruit" type="RigidBody2D" index="0" groups=[
+[node name="Fruit" type="RigidBody2D" groups=[
 "fruit",
 ]]
 
