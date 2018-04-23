@@ -7,10 +7,10 @@ path="res://.import/sprite_06.png-6c8cac986644459074c7583b6a6e4e33.stex"
 [deps]
 
 source_file="res://Sprites/buttons/sprite_06.png"
-source_md5="290384982918b830dcd7a1e022cdc349"
+source_md5="e35f3491fbdd9c83474ab1ecbf79eeb8"
 
 dest_files=[ "res://.import/sprite_06.png-6c8cac986644459074c7583b6a6e4e33.stex" ]
-dest_md5="dcce119e05fc1dde4ec42267c9590174"
+dest_md5="08a513d15107d8533ddafe0c87fec12a"
 
 [params]
 

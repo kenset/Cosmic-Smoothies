@@ -128,7 +128,7 @@ anchor_bottom = 1.0
 margin_left = 420.0
 margin_top = 570.0
 margin_right = 612.0
-margin_bottom = 762.0
+margin_bottom = 586.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -144,9 +144,6 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="MainMenu/Control/Buttons/StartGame" index="0"]
 
@@ -155,9 +152,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 16.0
-margin_top = 105.0
+margin_top = 17.0
 margin_right = 239.0
-margin_bottom = 149.0
+margin_bottom = 61.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -181,7 +178,7 @@ anchor_bottom = 0.0
 margin_left = 420.0
 margin_top = 690.0
 margin_right = 676.0
-margin_bottom = 946.0
+margin_bottom = 770.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -197,9 +194,6 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="MainMenu/Control/Buttons/HowToPlay" index="0"]
 
@@ -208,9 +202,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 18.0
-margin_top = 105.0
+margin_top = 18.0
 margin_right = 237.0
-margin_bottom = 149.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -250,9 +244,6 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="MainMenu/Control/Buttons/Credits" index="0"]
 
@@ -261,9 +252,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 17.0
-margin_top = 105.0
+margin_top = 18.0
 margin_right = 241.0
-margin_bottom = 150.0
+margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -314,6 +305,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Sign" parent="MainMenu/Control" index="5" instance=ExtResource( 11 )]
 
+visible = false
 position = Vector2( 810, 300.94 )
 scale = Vector2( 22.8002, 22.8002 )
 
@@ -352,15 +344,14 @@ size_flags_vertical = 1
 
 [node name="Back" type="TextureButton" parent="HowToPlay/Control" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 648.0
-margin_top = 827.0
+margin_top = 915.0
 margin_right = 904.0
-margin_bottom = 1083.0
+margin_bottom = 995.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -376,9 +367,6 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="MainMenu" type="Label" parent="HowToPlay/Control/Back" index="0"]
 
@@ -387,9 +375,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 18.0
-margin_top = 105.0
+margin_top = 18.0
 margin_right = 237.0
-margin_bottom = 149.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -780,7 +768,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Enemy" parent="HowToPlay/Control" index="4" instance=ExtResource( 13 )]
 
-position = Vector2( 1410, 728.474 )
+position = Vector2( 1410, 702.097 )
 scale = Vector2( 4.04734, 4.04734 )
 HIDE_FRUIT = true
 
@@ -820,15 +808,14 @@ size_flags_vertical = 1
 
 [node name="Back" type="TextureButton" parent="Credits/Control" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 660.0
-margin_top = 750.0
+margin_top = 838.0
 margin_right = 916.0
-margin_bottom = 1006.0
+margin_bottom = 918.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -844,9 +831,6 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="MainMenu" type="Label" parent="Credits/Control/Back" index="0"]
 
@@ -855,9 +839,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 18.0
-margin_top = 105.0
+margin_top = 18.0
 margin_right = 237.0
-margin_bottom = 149.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
