@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Order.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Order Ticket.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Blueberry.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Strawberry.png" type="Texture" id=4]
+[ext_resource path="res://Fruit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/order_success.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/order_failed.wav" type="AudioStream" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -33,6 +36,37 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 30 ), Vector2( 0, -270 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+
+resource_name = "Order_Failed_Anim"
+length = 1.0
+loop = false
+step = 0.16
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.96 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.5, 1.5 ), Vector2( 0.9, 0.9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.16, 0.32, 0.48, 0.64, 0.8, 0.96 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -45.0, 45.0, 0.0, -45.0, 45.0, 0.0 ]
+}
+
 [sub_resource type="Animation" id=2]
 
 resource_name = "Order_Up_Anim"
@@ -52,7 +86,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -270 ), Vector2( 0, 30 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Order" type="Node2D" index="0" groups=[
+[node name="Order" type="Node2D" groups=[
 "orders",
 ]]
 
@@ -67,15 +101,27 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Blueberry" type="Sprite" parent="AnimatedSprite" index="0"]
 
+visible = false
 position = Vector2( 32.9578, 48.7096 )
 scale = Vector2( 0.444749, 0.444749 )
 texture = ExtResource( 3 )
 
 [node name="Strawberry" type="Sprite" parent="AnimatedSprite" index="1"]
 
+visible = false
 position = Vector2( -33.0375, -27.9314 )
 scale = Vector2( 0.389267, 0.389267 )
 texture = ExtResource( 4 )
+
+[node name="Fruit1" parent="AnimatedSprite" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( -33.0191, -30.1418 )
+scale = Vector2( 2, 2 )
+
+[node name="Fruit2" parent="AnimatedSprite" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 25.3714, 50.7427 )
+scale = Vector2( 2, 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
@@ -85,8 +131,29 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Order_Complete_Anim = SubResource( 3 )
+anims/Order_Failed_Anim = SubResource( 4 )
 anims/Order_Up_Anim = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
+
+[node name="SuccessAudio" type="AudioStreamPlayer2D" parent="." index="2"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="FailAudio" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

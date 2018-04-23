@@ -90,4 +90,5 @@ func get_fruits_to_blend():
 	for i in range(fruits.size()):
 		fruitNames[i] = fruits[i].get_name()
 	fruitNames.sort()
-	print(fruitNames)
+	return fruitNames
+#	print(fruitNames)

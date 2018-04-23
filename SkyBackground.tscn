@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sky.tscn" type="PackedScene" id=1]
+
+[node name="SkyBackground" type="Node2D"]
+
+z_index = -1
+_sections_unfolded = [ "Z Index" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Top" type="Node2D" parent="." index="0"]
+
+[node name="Sky" parent="Top" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( -150, 180 )
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 0
+
+[node name="Sky2" parent="Top" index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 210, 180 )
+scale = Vector2( 6.125, 6.125 )
+
+[node name="Sky3" parent="Top" index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 570, 180 )
+scale = Vector2( 6.125, 6.125 )
+
+[node name="Sky4" parent="Top" index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 930, 180 )
+scale = Vector2( 6.125, 6.125 )
+
+[node name="Sky5" parent="Top" index="4" instance=ExtResource( 1 )]
+
+position = Vector2( 1290, 180 )
+scale = Vector2( 6.125, 6.125 )
+
+[node name="Middle" type="Node2D" parent="." index="1"]
+
+[node name="Sky7" parent="Middle" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( -150, 547 )
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 1
+
+[node name="Sky6" parent="Middle" index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 210, 547 )
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 1
+
+[node name="Sky8" parent="Middle" index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 570, 547 )
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 1
+
+[node name="Sky9" parent="Middle" index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 930, 547 )
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 1
+
+[node name="Sky10" parent="Middle" index="4" instance=ExtResource( 1 )]
+
+position = Vector2( 1290, 547 )
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 1
+
+[node name="Bottom" type="Node2D" parent="." index="2"]
+
+[node name="Sky11" parent="Bottom" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( -150, 914 )
+rotation = 1.5708
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 2
+
+[node name="Sky14" parent="Bottom" index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 210, 914 )
+rotation = 1.5708
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 2
+
+[node name="Sky12" parent="Bottom" index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 570, 914 )
+rotation = 1.5708
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 2
+
+[node name="Sky13" parent="Bottom" index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 930, 914 )
+rotation = 1.5708
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 2
+
+[node name="Sky15" parent="Bottom" index="4" instance=ExtResource( 1 )]
+
+position = Vector2( 1290, 914 )
+rotation = 1.5708
+scale = Vector2( 6.125, 6.125 )
+STARRINESS = 2
+
+

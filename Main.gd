@@ -4,6 +4,7 @@ export (float) var SHAKE = 0.0
 
 var enemyScene = preload("res://Enemy.tscn")
 var enemyPathScene = preload("res://EnemyPath.tscn")
+var orderScene = preload("res://Order.tscn")
 
 func _ready():
 	randomize()
@@ -20,7 +21,7 @@ func _process(delta):
 
 func _reload_game():
 	for child in self.get_children():
-		if (child.is_in_group("enemies") || child.is_in_group("fruit")):
+		if (child.is_in_group("enemies") || child.is_in_group("fruit") || child.is_in_group("orders")):
 			child.queue_free()
 	$Player.resetPlayer()
 	$Blender.reset_blender()
@@ -30,8 +31,17 @@ func start_game():
 	$HUD/HealthBar.value = 100
 	$HUD.reset()
 	
+	start_order()
 #	spawn_enemy()
 	$EnemySpawnTimer.start()
+
+func start_order():
+	var order = orderScene.instance()
+	order.position = Vector2(-213, 97)
+	add_child(order)
+	$FoodCart.connect("smoothie_accepted", order, "_process_order")
+	order.connect("order_processed", self, "start_order")
+	order.add_to_group("orders")
 
 func spawn_enemy():
 	var enemyPath = enemyPathScene.instance()

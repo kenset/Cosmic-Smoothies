@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sky.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SkyBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Moon Floor Grey FINAL.png" type="Texture" id=5]
 [ext_resource path="res://Blender.tscn" type="PackedScene" id=6]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Sprites/Moon and Stars.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Health Bar (1).png" type="Texture" id=11]
 [ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Order.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 
@@ -53,7 +52,7 @@ extents = Vector2( 30, 210 )
 custom_solver_bias = 0.0
 extents = Vector2( 586.438, 30 )
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 SHAKE = 0.0
@@ -62,6 +61,7 @@ SHAKE = 0.0
 
 [node name="ColorRect" type="ColorRect" parent="." index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -78,110 +78,7 @@ size_flags_vertical = 1
 color = Color( 0.0606729, 0.0849906, 0.105469, 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="SkyBackground" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="Top" type="Node2D" parent="SkyBackground" index="0"]
-
-[node name="Sky" parent="SkyBackground/Top" index="0" instance=ExtResource( 3 )]
-
-position = Vector2( -150, 180 )
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 0
-
-[node name="Sky2" parent="SkyBackground/Top" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 210, 180 )
-scale = Vector2( 6.125, 6.125 )
-
-[node name="Sky3" parent="SkyBackground/Top" index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 570, 180 )
-scale = Vector2( 6.125, 6.125 )
-
-[node name="Sky4" parent="SkyBackground/Top" index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 930, 180 )
-scale = Vector2( 6.125, 6.125 )
-
-[node name="Sky5" parent="SkyBackground/Top" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 1290, 180 )
-scale = Vector2( 6.125, 6.125 )
-
-[node name="Middle" type="Node2D" parent="SkyBackground" index="1"]
-
-[node name="Sky7" parent="SkyBackground/Middle" index="0" instance=ExtResource( 3 )]
-
-position = Vector2( -150, 547 )
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 1
-
-[node name="Sky6" parent="SkyBackground/Middle" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 210, 547 )
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 1
-
-[node name="Sky8" parent="SkyBackground/Middle" index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 570, 547 )
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 1
-
-[node name="Sky9" parent="SkyBackground/Middle" index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 930, 547 )
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 1
-
-[node name="Sky10" parent="SkyBackground/Middle" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 1290, 547 )
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 1
-
-[node name="Bottom" type="Node2D" parent="SkyBackground" index="2"]
-
-[node name="Sky11" parent="SkyBackground/Bottom" index="0" instance=ExtResource( 3 )]
-
-position = Vector2( -150, 914 )
-rotation = 1.5708
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 2
-
-[node name="Sky14" parent="SkyBackground/Bottom" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 210, 914 )
-rotation = 1.5708
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 2
-
-[node name="Sky12" parent="SkyBackground/Bottom" index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 570, 914 )
-rotation = 1.5708
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 2
-
-[node name="Sky13" parent="SkyBackground/Bottom" index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 930, 914 )
-rotation = 1.5708
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 2
-
-[node name="Sky15" parent="SkyBackground/Bottom" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 1290, 914 )
-rotation = 1.5708
-scale = Vector2( 6.125, 6.125 )
-STARRINESS = 2
+[node name="SkyBackground" parent="." index="2" instance=ExtResource( 3 )]
 
 [node name="Camera" type="Camera2D" parent="." index="3"]
 
@@ -472,10 +369,6 @@ volume_db = -10.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-
-[node name="Order" parent="." index="12" instance=ExtResource( 13 )]
-
-position = Vector2( -213.156, 96.8889 )
 
 [connection signal="shooting" from="Player" to="." method="_on_Player_shooting"]
 
