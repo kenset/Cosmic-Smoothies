@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Moon and Stars.png-4f868c2175b73a5a366519ad745a7b10.stex"
+path="res://.import/sprite_10.png-5bc9e5162e4e785764651be5db19e757.stex"
 
 [deps]
 
-source_file="res://Sprites/Moon and Stars.png"
-source_md5="e565d4bf81f607141d3986f7dc766b67"
+source_file="res://Sprites/healthbar/sprite_10.png"
+source_md5="ee3c5ea98cfc6e40f898d3603fd2b225"
 
-dest_files=[ "res://.import/Moon and Stars.png-4f868c2175b73a5a366519ad745a7b10.stex" ]
-dest_md5="389cb3fff2f618cc171c8f6ad46ffa09"
+dest_files=[ "res://.import/sprite_10.png-5bc9e5162e4e785764651be5db19e757.stex" ]
+dest_md5="7da7eb28ce804eac790973f047730e8a"
 
 [params]
 

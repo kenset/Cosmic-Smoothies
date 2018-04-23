@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -8,10 +8,7 @@
 [ext_resource path="res://Blender.tscn" type="PackedScene" id=6]
 [ext_resource path="res://FoodCart.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sign.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Stars.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Moon and Stars.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Health Bar (1).png" type="Texture" id=11]
-[ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 
@@ -193,7 +190,7 @@ texture = ExtResource( 5 )
 [node name="EnemySpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 3.0
 one_shot = false
 autostart = false
 
@@ -212,159 +209,9 @@ position = Vector2( 512.003, 223.158 )
 scale = Vector2( 9.85278, 9.85278 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
-[node name="Background" type="Node2D" parent="." index="10"]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="10"]
 
-editor/display_folded = true
-visible = false
-
-[node name="Stars" type="Node2D" parent="Background" index="0"]
-
-editor/display_folded = true
-modulate = Color( 0.359375, 0.359375, 0.359375, 1 )
-position = Vector2( -81.8744, 185.988 )
-scale = Vector2( 0.617188, 0.617188 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Stars" type="Sprite" parent="Background/Stars" index="0"]
-
-position = Vector2( 1705.13, -75.5731 )
-texture = ExtResource( 9 )
-
-[node name="Stars2" type="Sprite" parent="Background/Stars" index="1"]
-
-position = Vector2( 1721.77, 197.298 )
-texture = ExtResource( 9 )
-
-[node name="Stars3" type="Sprite" parent="Background/Stars" index="2"]
-
-position = Vector2( 1999.05, 204.408 )
-texture = ExtResource( 9 )
-
-[node name="Stars4" type="Sprite" parent="Background/Stars" index="3"]
-
-position = Vector2( 1500.77, -117.312 )
-texture = ExtResource( 9 )
-
-[node name="Stars5" type="Sprite" parent="Background/Stars" index="4"]
-
-position = Vector2( 1523.88, 112.573 )
-texture = ExtResource( 9 )
-
-[node name="Stars6" type="Sprite" parent="Background/Stars" index="5"]
-
-position = Vector2( 1286.29, -80.5782 )
-texture = ExtResource( 9 )
-
-[node name="Stars7" type="Sprite" parent="Background/Stars" index="6"]
-
-position = Vector2( 1256.07, 139.827 )
-texture = ExtResource( 9 )
-
-[node name="Stars8" type="Sprite" parent="Background/Stars" index="7"]
-
-position = Vector2( 1089.58, -146.344 )
-texture = ExtResource( 9 )
-
-[node name="Stars9" type="Sprite" parent="Background/Stars" index="8"]
-
-position = Vector2( 1116.84, 102.5 )
-texture = ExtResource( 9 )
-
-[node name="Stars10" type="Sprite" parent="Background/Stars" index="9"]
-
-position = Vector2( 924.28, -58.6562 )
-texture = ExtResource( 9 )
-
-[node name="Stars11" type="Sprite" parent="Background/Stars" index="10"]
-
-position = Vector2( 849.626, -173.599 )
-texture = ExtResource( 9 )
-
-[node name="Stars12" type="Sprite" parent="Background/Stars" index="11"]
-
-position = Vector2( 888.73, 143.974 )
-texture = ExtResource( 9 )
-
-[node name="Stars13" type="Sprite" parent="Background/Stars" index="12"]
-
-position = Vector2( 664.178, 135.68 )
-texture = ExtResource( 9 )
-
-[node name="Stars14" type="Sprite" parent="Background/Stars" index="13"]
-
-position = Vector2( 669.51, -117.905 )
-texture = ExtResource( 9 )
-
-[node name="Stars15" type="Sprite" parent="Background/Stars" index="14"]
-
-position = Vector2( 517.241, -8.29483 )
-texture = ExtResource( 9 )
-
-[node name="Stars16" type="Sprite" parent="Background/Stars" index="15"]
-
-position = Vector2( 438.44, -167.674 )
-texture = ExtResource( 9 )
-
-[node name="Stars17" type="Sprite" parent="Background/Stars" index="16"]
-
-position = Vector2( 408.816, 178.339 )
-texture = ExtResource( 9 )
-
-[node name="Stars18" type="Sprite" parent="Background/Stars" index="17"]
-
-position = Vector2( 269.582, 8.29483 )
-texture = ExtResource( 9 )
-
-[node name="Stars19" type="Sprite" parent="Background/Stars" index="18"]
-
-position = Vector2( 249.437, -179.524 )
-texture = ExtResource( 9 )
-
-[node name="Stars20" type="Sprite" parent="Background/Stars" index="19"]
-
-position = Vector2( 162.934, 216.85 )
-texture = ExtResource( 9 )
-
-[node name="Stars21" type="Sprite" parent="Background/Stars" index="20"]
-
-texture = ExtResource( 9 )
-
-[node name="Stars22" type="Sprite" parent="Background/Stars" index="21"]
-
-position = Vector2( 77.0233, -194.336 )
-texture = ExtResource( 9 )
-
-[node name="Stars23" type="Sprite" parent="Background/Stars" index="22"]
-
-position = Vector2( -53.9163, 223.96 )
-texture = ExtResource( 9 )
-
-[node name="Stars24" type="Sprite" parent="Background/Stars" index="23"]
-
-position = Vector2( -150.492, -189.003 )
-texture = ExtResource( 9 )
-
-[node name="Stars25" type="Sprite" parent="Background/Stars" index="24"]
-
-position = Vector2( -193.151, 47.399 )
-texture = ExtResource( 9 )
-
-[node name="Moon and Stars" type="Sprite" parent="Background" index="1"]
-
-modulate = Color( 0.480469, 0.466261, 0.466261, 1 )
-position = Vector2( 1155.22, 134.004 )
-scale = Vector2( 0.731388, 0.731388 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="Health Bar (1)" type="Sprite" parent="Background" index="2"]
-
-position = Vector2( 841.946, 989.137 )
-texture = ExtResource( 11 )
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="11"]
-
-stream = ExtResource( 12 )
+stream = ExtResource( 9 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0

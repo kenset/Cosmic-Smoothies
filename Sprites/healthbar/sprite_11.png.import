@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Health Bar (1).png-dd7bd7b1d110fbbd88080f0f31285345.stex"
+path="res://.import/sprite_11.png-124f58a3629a626bedb17fae2183921a.stex"
 
 [deps]
 
-source_file="res://Sprites/Health Bar (1).png"
-source_md5="13515a19c54ced7f413caf9d8d075bad"
+source_file="res://Sprites/healthbar/sprite_11.png"
+source_md5="7b3928381e0d344555e5d91c223bd89b"
 
-dest_files=[ "res://.import/Health Bar (1).png-dd7bd7b1d110fbbd88080f0f31285345.stex" ]
-dest_md5="4917a9d7dbcd70e0235f88c6833c49a4"
+dest_files=[ "res://.import/sprite_11.png-124f58a3629a626bedb17fae2183921a.stex" ]
+dest_md5="170ae6dcf71d383a6b999a5527288e15"
 
 [params]
 

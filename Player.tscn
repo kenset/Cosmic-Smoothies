@@ -54,7 +54,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Pause", "Transform" ]
 SPEED = 400
 
 [node name="Color" type="ColorRect" parent="." index="0"]

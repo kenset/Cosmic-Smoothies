@@ -31,6 +31,9 @@ func start_game():
 	$HUD/HealthBar.value = 100
 	$HUD.reset()
 	
+	$Player.set_process(true)
+	$Player.set_process_input(true)
+	
 	start_order()
 #	spawn_enemy()
 	$EnemySpawnTimer.start()
@@ -64,6 +67,8 @@ func take_damage(damage):
 
 func game_over():
 	$HUD.game_over()
+	$Player.set_process(false)
+	$Player.set_process_input(false)
 	$EnemySpawnTimer.stop()
 
 func _on_Player_shooting():

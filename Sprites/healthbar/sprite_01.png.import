@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Stars.png-5970cbc44bd1575180e3e00bfcb56091.stex"
+path="res://.import/sprite_01.png-28bd8fb952f3309a17e5e187883211c8.stex"
 
 [deps]
 
-source_file="res://Sprites/Stars.png"
-source_md5="b0110211f80524085b0690eb3e62802e"
+source_file="res://Sprites/healthbar/sprite_01.png"
+source_md5="c2fea57c5346ba46c2416194fda5edb6"
 
-dest_files=[ "res://.import/Stars.png-5970cbc44bd1575180e3e00bfcb56091.stex" ]
-dest_md5="246a331d06ea7d12177fa57e0dc8ca79"
+dest_files=[ "res://.import/sprite_01.png-28bd8fb952f3309a17e5e187883211c8.stex" ]
+dest_md5="b4825430652e1d11b4fe2a28c86f1cb8"
 
 [params]
 

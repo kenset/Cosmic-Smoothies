@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Moon Floor 1.png-52449286e21d3a18165e376ccaf88850.stex"
+path="res://.import/sprite_13.png-881904668ec99c565b4629419214c39b.stex"
 
 [deps]
 
-source_file="res://Moon Floor 1.png"
-source_md5="9813ed040497998f63def5e03c6dfd11"
+source_file="res://Sprites/healthbar/sprite_13.png"
+source_md5="cab64d0528fc8c0b5ca7119ef795a050"
 
-dest_files=[ "res://.import/Moon Floor 1.png-52449286e21d3a18165e376ccaf88850.stex" ]
-dest_md5="2ec7e5e7470e11e1470a4f218c9f9514"
+dest_files=[ "res://.import/sprite_13.png-881904668ec99c565b4629419214c39b.stex" ]
+dest_md5="4234bc1273e029daefdbf28e43af1e58"
 
 [params]
 

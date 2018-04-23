@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Concrete.png-b234178e4ee29de4621a2807d8d20018.stex"
+path="res://.import/sprite_08.png-da0685601f621bd857e63f7155124d79.stex"
 
 [deps]
 
-source_file="res://Sprites/Concrete.png"
-source_md5="24f9369143df224d95d87d0fb4541bb3"
+source_file="res://Sprites/healthbar/sprite_08.png"
+source_md5="9c2ff768130521ec3b51a60daaa6b867"
 
-dest_files=[ "res://.import/Concrete.png-b234178e4ee29de4621a2807d8d20018.stex" ]
-dest_md5="82031abeb915bdabf0e51805b5d1e237"
+dest_files=[ "res://.import/sprite_08.png-da0685601f621bd857e63f7155124d79.stex" ]
+dest_md5="5fc4a6c0010b82f5c6f23720f0e98def"
 
 [params]
 
