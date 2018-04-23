@@ -33,3 +33,7 @@ func _on_RestartButton_pressed():
 
 func _on_ResumeButton_pressed():
 	toggle_pause()
+
+func _on_MainMenu_pressed():
+	toggle_pause()
+	get_tree().change_scene("res://MainMenu.tscn")

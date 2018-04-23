@@ -38,7 +38,7 @@ animations = [ {
 scale = Vector2( 0.0292969, 0.0292969 )
 frames = SubResource( 1 )
 animation = "darker"
-frame = 3
+frame = 6
 playing = true
 
 

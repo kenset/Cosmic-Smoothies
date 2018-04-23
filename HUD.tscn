@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://8bitlim.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/buttons/sprite_00.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/buttons/sprite_02.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/buttons/sprite_01.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=3]
 
@@ -11,15 +14,15 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 
-size = 45
+size = 40
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 pause_mode = 2
 layer = 1
@@ -36,7 +39,6 @@ __meta__ = {
 
 [node name="Paused" type="Control" parent="." index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -77,17 +79,33 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin", "Visibility", "custom_fonts" ]
 
-[node name="ResumeButton" type="Button" parent="Paused" index="1"]
+[node name="MenuButtons" type="Control" parent="Paused" index="1"]
 
-pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 677.0
-margin_top = 529.0
-margin_right = 924.0
-margin_bottom = 544.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="RestartButton" type="TextureButton" parent="Paused/MenuButtons" index="0"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 672.0
+margin_top = 624.0
+margin_right = 928.0
+margin_bottom = 704.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -95,43 +113,148 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Resume"
-flat = false
-align = 1
-_sections_unfolded = [ "Anchor", "Margin", "Pause", "custom_fonts" ]
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "Textures", "custom_fonts" ]
 
-[node name="RestartButton" type="Button" parent="Paused" index="2"]
+[node name="Label" type="Label" parent="Paused/MenuButtons/RestartButton" index="0"]
 
-pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 677.0
-margin_top = 611.0
-margin_right = 924.0
-margin_bottom = 665.0
+margin_left = 16.0
+margin_top = 17.0
+margin_right = 240.0
+margin_bottom = 64.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
 text = "Restart"
-flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Margin", "Pause", "custom_fonts" ]
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="MainMenu" type="TextureButton" parent="Paused/MenuButtons" index="1"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 672.0
+margin_top = 720.0
+margin_right = 928.0
+margin_bottom = 800.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "Textures", "custom_fonts" ]
+
+[node name="Label" type="Label" parent="Paused/MenuButtons/MainMenu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Main Menu"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ResumeButton" type="TextureButton" parent="Paused/MenuButtons" index="2"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 672.0
+margin_top = 528.0
+margin_right = 928.0
+margin_bottom = 608.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "Textures", "custom_fonts" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Paused/MenuButtons/ResumeButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Resume"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="GameOver" type="Control" parent="." index="1"]
 
@@ -146,10 +269,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="GameOverLabel" type="Label" parent="GameOver" index="0"]
 
@@ -157,10 +276,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = -149.0
-margin_right = 1.0
-margin_bottom = 1.0
+margin_top = -144.0
+margin_bottom = 6.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -176,17 +293,33 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin", "Visibility", "custom_fonts" ]
 
-[node name="RestartButton" type="Button" parent="GameOver" index="1"]
+[node name="MenuButtons" type="Control" parent="GameOver" index="1"]
 
-pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 677.0
-margin_top = 529.0
-margin_right = 924.0
-margin_bottom = 544.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="RestartButton" type="TextureButton" parent="GameOver/MenuButtons" index="0"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 672.0
+margin_top = 528.0
+margin_right = 928.0
+margin_bottom = 608.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -194,15 +327,92 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "Textures", "custom_fonts" ]
+
+[node name="Label" type="Label" parent="GameOver/MenuButtons/RestartButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 17.0
+margin_right = 240.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
 text = "Restart"
-flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Margin", "Pause", "custom_fonts" ]
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="MainMenu" type="TextureButton" parent="GameOver/MenuButtons" index="1"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 672.0
+margin_top = 624.0
+margin_right = 928.0
+margin_bottom = 704.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "Textures", "custom_fonts" ]
+
+[node name="Label" type="Label" parent="GameOver/MenuButtons/MainMenu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Main Menu"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="HealthBar" type="ProgressBar" parent="." index="2"]
 
@@ -230,10 +440,14 @@ rounded = false
 percent_visible = true
 _sections_unfolded = [ "Anchor", "Margin", "Percent" ]
 
-[connection signal="pressed" from="Paused/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="Paused/MenuButtons/RestartButton" to="." method="_on_RestartButton_pressed"]
 
-[connection signal="pressed" from="Paused/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="Paused/MenuButtons/MainMenu" to="." method="_on_MainMenu_pressed"]
 
-[connection signal="pressed" from="GameOver/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="Paused/MenuButtons/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+
+[connection signal="pressed" from="GameOver/MenuButtons/RestartButton" to="." method="_on_RestartButton_pressed"]
+
+[connection signal="pressed" from="GameOver/MenuButtons/MainMenu" to="." method="_on_MainMenu_pressed"]
 
 

@@ -81,8 +81,11 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="MainMenu" type="Node"]
 
+pause_mode = 2
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 __meta__ = {
+"_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [ 722.984, 827.615, 42.1765, 1064.46, 510.62, 330.795, 1241.13 ]
 }
 
@@ -100,7 +103,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="MainMenu" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -243,6 +245,10 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="MainMenu/Control/Buttons/Credits" index="0"]
 
@@ -270,15 +276,14 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Quit" type="TextureButton" parent="MainMenu/Control/Buttons" index="3"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 420.0
-margin_top = 810.0
+margin_top = 923.0
 margin_right = 676.0
-margin_bottom = 890.0
+margin_bottom = 1003.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -343,6 +348,7 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( 810, 300.94 )
 scale = Vector2( 22.8002, 22.8002 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="moon" type="Sprite" parent="MainMenu/Control" index="4"]
 
@@ -837,6 +843,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="Credits" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1191,7 +1198,7 @@ texture = ExtResource( 19 )
 
 [connection signal="pressed" from="MainMenu/Control/Buttons/Credits" to="." method="_on_Credits_pressed"]
 
-[connection signal="pressed" from="MainMenu/Control/Buttons/Quit" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="MainMenu/Control/Buttons/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="pressed" from="HowToPlay/Control/Back" to="." method="_on_Back_pressed"]
 
