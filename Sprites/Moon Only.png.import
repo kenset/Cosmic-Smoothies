@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Treylor Games.png-16f8e6b65ba3b879397296522b5533d4.stex"
+path="res://.import/Moon Only.png-de9bc251a3e8569831d97b805b3548f8.stex"
 
 [deps]
 
-source_file="res://Sprites/Treylor Games.png"
-source_md5="52fda4d410ee1320009084ea2faa21f9"
+source_file="res://Sprites/Moon Only.png"
+source_md5="a8d7ba12839649a8eeafd126cc32220c"
 
-dest_files=[ "res://.import/Treylor Games.png-16f8e6b65ba3b879397296522b5533d4.stex" ]
-dest_md5="88e3df9b91fad38c179bd024d92e19a5"
+dest_files=[ "res://.import/Moon Only.png-de9bc251a3e8569831d97b805b3548f8.stex" ]
+dest_md5="8d2dad7f96d867fb764b828046e163be"
 
 [params]
 

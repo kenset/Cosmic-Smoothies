@@ -6,19 +6,19 @@
 [ext_resource path="res://Sprites/buttons/sprite_02.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/buttons/sprite_01.png" type="Texture" id=5]
 [ext_resource path="res://8bitlim.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Sprites/Moon and Stars.png" type="Texture" id=7]
-[ext_resource path="res://FoodCart.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/chef/blending/sprite_0.png" type="Texture" id=9]
+[ext_resource path="res://FoodCart.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/chef/blending/sprite_0.png" type="Texture" id=8]
+[ext_resource path="res://Sign.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/blender/blender_textured.png" type="Texture" id=10]
-[ext_resource path="res://Sign.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Anonymous Pro.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://Sprites/Treylor Games.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Apple.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Banana.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Strawberry.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Blueberry.png" type="Texture" id=19]
+[ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Anonymous Pro.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Sprites/Treylor Games.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Apple.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Banana.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Strawberry.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Blueberry.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Moon Only.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -76,7 +76,7 @@ tracks/0/keys = {
 size = 25
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 14 )
+font_data = ExtResource( 13 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="MainMenu" type="Node" index="0"]
@@ -100,7 +100,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="MainMenu" index="0"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -117,7 +116,7 @@ size_flags_vertical = 1
 
 [node name="Buttons" type="Node2D" parent="MainMenu/Control" index="0"]
 
-position = Vector2( 240, -60 )
+position = Vector2( 240, -22.6418 )
 
 [node name="StartGame" type="TextureButton" parent="MainMenu/Control/Buttons" index="0"]
 
@@ -228,7 +227,7 @@ anchor_bottom = 0.0
 margin_left = 420.0
 margin_top = 810.0
 margin_right = 676.0
-margin_bottom = 1066.0
+margin_bottom = 890.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -269,15 +268,61 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Moon and Stars" type="Sprite" parent="MainMenu/Control" index="1"]
+[node name="Quit" type="TextureButton" parent="MainMenu/Control/Buttons" index="3"]
 
-modulate = Color( 0.535156, 0.535156, 0.535156, 1 )
-position = Vector2( 1470, 120 )
-scale = Vector2( 0.777344, 0.777344 )
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Visibility" ]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 420.0
+margin_top = 810.0
+margin_right = 676.0
+margin_bottom = 890.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="FoodCart" parent="MainMenu/Control" index="2" instance=ExtResource( 8 )]
+[node name="Label" type="Label" parent="MainMenu/Control/Buttons/Quit" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 18.0
+margin_right = 241.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="FoodCart" parent="MainMenu/Control" index="1" instance=ExtResource( 7 )]
 
 modulate = Color( 0.59375, 0.59375, 0.59375, 1 )
 position = Vector2( 161.796, 727.784 )
@@ -285,16 +330,21 @@ rotation = 0.282071
 scale = Vector2( 0.711101, 0.711101 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="chef" type="Sprite" parent="MainMenu/Control" index="3"]
+[node name="chef" type="Sprite" parent="MainMenu/Control" index="2"]
 
 modulate = Color( 0.743553, 0.749457, 0.757812, 1 )
 position = Vector2( 350.972, 839.487 )
 rotation = -0.440446
 scale = Vector2( 1, 1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="blender_textured" type="Sprite" parent="MainMenu/Control" index="4"]
+[node name="Sign" parent="MainMenu/Control" index="3" instance=ExtResource( 9 )]
+
+position = Vector2( 810, 300.94 )
+scale = Vector2( 22.8002, 22.8002 )
+
+[node name="moon" type="Sprite" parent="MainMenu/Control" index="4"]
 
 modulate = Color( 0.359123, 0.37865, 0.445312, 1 )
 position = Vector2( 181.399, 512.413 )
@@ -303,15 +353,9 @@ scale = Vector2( 0.167174, 0.167174 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Sign" parent="MainMenu/Control" index="5" instance=ExtResource( 11 )]
-
-visible = false
-position = Vector2( 810, 300.94 )
-scale = Vector2( 22.8002, 22.8002 )
-
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 11 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
@@ -766,9 +810,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Enemy" parent="HowToPlay/Control" index="4" instance=ExtResource( 13 )]
+[node name="Enemy" parent="HowToPlay/Control" index="4" instance=ExtResource( 12 )]
 
-position = Vector2( 1410, 702.097 )
+position = Vector2( 1410, 722.56 )
 scale = Vector2( 4.04734, 4.04734 )
 HIDE_FRUIT = true
 
@@ -1103,9 +1147,9 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="Treylor Games" type="Sprite" parent="Credits/Control" index="3"]
 
-position = Vector2( 780, 360 )
+position = Vector2( 802, 360 )
 scale = Vector2( 0.337891, 0.337891 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="Fruits" type="Control" parent="Credits/Control" index="4"]
 
@@ -1125,21 +1169,26 @@ size_flags_vertical = 1
 [node name="Apple" type="Sprite" parent="Credits/Control/Fruits" index="0"]
 
 position = Vector2( 150, 150 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 
 [node name="Banana" type="Sprite" parent="Credits/Control/Fruits" index="1"]
 
 position = Vector2( 150, 390 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 
 [node name="Strawberry" type="Sprite" parent="Credits/Control/Fruits" index="2"]
 
 position = Vector2( 150, 660 )
-texture = ExtResource( 18 )
+texture = ExtResource( 17 )
 
 [node name="Blueberry" type="Sprite" parent="Credits/Control/Fruits" index="3"]
 
 position = Vector2( 150, 900 )
+texture = ExtResource( 18 )
+
+[node name="Moon Only" type="Sprite" parent="." index="5"]
+
+position = Vector2( 1471.32, 126.188 )
 texture = ExtResource( 19 )
 
 [connection signal="pressed" from="MainMenu/Control/Buttons/StartGame" to="." method="_on_StartGame_pressed"]
@@ -1147,6 +1196,8 @@ texture = ExtResource( 19 )
 [connection signal="pressed" from="MainMenu/Control/Buttons/HowToPlay" to="." method="_on_HowToPlay_pressed"]
 
 [connection signal="pressed" from="MainMenu/Control/Buttons/Credits" to="." method="_on_Credits_pressed"]
+
+[connection signal="pressed" from="MainMenu/Control/Buttons/Quit" to="." method="_on_Credits_pressed"]
 
 [connection signal="pressed" from="HowToPlay/Control/Back" to="." method="_on_Back_pressed"]
 
