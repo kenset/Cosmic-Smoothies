@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/chef/catching/chef_catch_sprite_0.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/chef/catching/chef_catch_sprite_1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/chef/shooting/chef_shooting_sprite_0.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/chef/shooting/chef_shooting_sprite_1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/chef/blending/sprite_0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/chef/blending/sprite_1.png" type="Texture" id=7]
+[ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/footsteps.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -23,6 +27,11 @@ animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "shooting",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "blending",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -72,23 +81,22 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 
-position = Vector2( 0, -20 )
+position = Vector2( -0.292035, -20.2222 )
+rotation = 0.00940313
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "shooting"
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Gunpoint" type="Node2D" parent="AnimatedSprite" index="0"]
 
-position = Vector2( 22, -150.588 )
+position = Vector2( 22, -150 )
 scale = Vector2( 0.705882, 0.705882 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CatchArea" type="Area2D" parent="AnimatedSprite" index="1"]
 
+editor/display_folded = true
 position = Vector2( 0, 75.2941 )
 scale = Vector2( 3.76471, 3.76471 )
 input_pickable = true
@@ -98,13 +106,49 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CatchAreaCollision" type="CollisionShape2D" parent="AnimatedSprite/CatchArea" index="0"]
 
 position = Vector2( 0, -60 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="GunshotSound" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 8 )
+volume_db = -7.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="FootstepsSound" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="FootstepsTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
 
 [connection signal="body_entered" from="AnimatedSprite/CatchArea" to="." method="_on_CatchArea_body_entered"]
+
+[connection signal="timeout" from="FootstepsTimer" to="." method="_on_FootstepsTimer_timeout"]
 
 

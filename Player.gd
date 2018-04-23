@@ -8,6 +8,7 @@ var screensize
 var bulletScene = preload("res://Bullet.tscn")
 
 var isCatching = false
+var isBlending = false
 var isHoldingFruit = false
 var startingPos
 
@@ -24,6 +25,12 @@ func _input(event):
 			startShooting()
 		else:
 			startCatching()
+	if (event.is_action_pressed("ui_blend_aim") && !isCatching):
+		startBlending()
+	elif (event.is_action_released("ui_blend_aim") && !isCatching):
+		startShooting()
+	elif (event.is_action_released("ui_blend_aim") && isCatching):
+		startCatching()
 
 func _process(delta):
 	move(delta)
@@ -40,7 +47,6 @@ func dropFruit():
 		main.add_child(fruit)
 		fruit.set_owner(main)
 
-#		fruit.mode = RigidBody2D.MODE_RIGID
 		fruit.mode = RigidBody2D.MODE_CHARACTER
 		fruit.global_transform = pos
 		isHoldingFruit = false
@@ -49,11 +55,30 @@ func dropFruit():
 
 func startShooting():
 	isCatching = false
+	isBlending = false
 	$AnimatedSprite.animation = "shooting"
+	var x = -22 if $AnimatedSprite.flip_h == true else 22
+	$AnimatedSprite/Gunpoint.position = Vector2(x, -150)
+	$AnimatedSprite/Gunpoint.rotation_degrees = 0
 	
 func startCatching():
 	isCatching = true
+	isBlending = false
 	$AnimatedSprite.animation = "catching"
+
+func startBlending():
+	isBlending = true
+	$AnimatedSprite.animation = "blending"
+	var x
+	var rot
+	if ($AnimatedSprite.flip_h == true):
+		x = -135
+		rot = -90
+	else:
+		x = 135
+		rot = 90
+	$AnimatedSprite/Gunpoint.position = Vector2(x, 12)
+	$AnimatedSprite/Gunpoint.rotation_degrees = rot
 
 func resetPlayer():
 	for child in self.get_children():
@@ -68,7 +93,10 @@ func take_action():
 			emit_signal("shooting")
 			var bulletInstance = bulletScene.instance()
 			bulletInstance.position = $AnimatedSprite/Gunpoint.global_position
+			bulletInstance.rotation = $AnimatedSprite/Gunpoint.global_rotation
 			get_tree().get_root().add_child(bulletInstance)
+			if (!$GunshotSound.playing):
+				$GunshotSound.play()
 		else:
 			emit_signal("stop_shooting")
 	else:
@@ -84,23 +112,28 @@ func move(delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 		$AnimatedSprite.flip_h = false
-		$AnimatedSprite/Gunpoint.position.x = 22
+		$AnimatedSprite/Gunpoint.position.x = 22 if isBlending == false else 135
 		$AnimatedSprite.playing = true
+		$AnimatedSprite/Gunpoint.rotation_degrees = 90 if isBlending else 0
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
 		$AnimatedSprite.flip_h = true
-		$AnimatedSprite/Gunpoint.position.x = -22
+		$AnimatedSprite/Gunpoint.position.x = -22 if isBlending == false else -135
+		$AnimatedSprite/Gunpoint.rotation_degrees = -90 if isBlending else 0
 		$AnimatedSprite.playing = true
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * SPEED
+		if ($FootstepsTimer.is_stopped()):
+			$FootstepsSound.play()
+			$FootstepsTimer.start()
 		
 	if (velocity.length() == 0):
 		$AnimatedSprite.playing = false
+		$FootstepsTimer.stop()
 	
 	position += velocity * delta
 	
-	position.x = clamp(position.x, 0, screensize.x)
-	position.y = clamp(position.y, screensize.y * 0.75, screensize.y)
+	position.x = clamp(position.x, -270, screensize.x)
 
 
 func _on_CatchArea_body_entered(body):
@@ -118,3 +151,6 @@ func _on_CatchArea_body_entered(body):
 			
 			fruit.mode = RigidBody2D.MODE_STATIC
 			fruit.global_position = pos
+
+func _on_FootstepsTimer_timeout():
+	$FootstepsSound.play()

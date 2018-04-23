@@ -10,6 +10,7 @@ func _ready():
 	$Camera.make_current()
 	$HUD.connect("restart_game", self, "_reload_game")
 	set_process_input(true)
+	$BackgroundMusic.play()
 	start_game()
 
 func _input(event):
@@ -27,6 +28,7 @@ func _reload_game():
 		if (child.is_in_group("enemies") || child.is_in_group("fruit")):
 			child.queue_free()
 	$Player.resetPlayer()
+	$Blender.reset_blender()
 	start_game()
 
 func start_game():

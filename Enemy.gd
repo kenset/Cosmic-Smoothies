@@ -6,6 +6,13 @@ export (int) var HEALTH = 5
 
 signal enemy_died
 
+var explosion_00 = preload("res://Sounds/explosions/Explosion_00.wav")
+var explosion_01 = preload("res://Sounds/explosions/Explosion_01.wav")
+var explosion_02 = preload("res://Sounds/explosions/Explosion_02.wav")
+var explosion_03 = preload("res://Sounds/explosions/Explosion_03.wav")
+
+var explosionSounds = [explosion_00, explosion_01, explosion_02, explosion_03]
+
 var attack = false;
 var velocity = Vector2()
 var parent
@@ -59,6 +66,11 @@ func destroy_enemy():
 	drop_fruit()
 	parent.SPEED = 0.0
 	emit_signal("enemy_died")
+	play_explosion()
 	$AnimatedSprite.animation = "explosion"
 	yield($AnimatedSprite, "animation_finished" )
 	parent.queue_free()
+	
+func play_explosion():
+	$ExplosionSound.stream = explosionSounds[randi() % 4]
+	$ExplosionSound.play()

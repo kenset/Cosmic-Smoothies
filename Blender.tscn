@@ -1,23 +1,94 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Sprites/blender/Blender.png" type="Texture" id=1]
+[ext_resource path="res://Blender.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/blender/open_anim/button_out/sprite_2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_07.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/blender/open_anim/button_out/sprite_0.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/blender/open_anim/button_out/sprite_1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/blender/open_anim/button_in/sprite_2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/blender/open_anim/button_in/sprite_1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/blender/open_anim/button_in/sprite_0.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_01.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_02.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_03.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_04.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_05.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_06.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_08.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_09.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_10.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_11.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/blender/blend_anim/sprite_12.png" type="Texture" id=19]
+[ext_resource path="res://Fruit.tscn" type="PackedScene" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "default",
+"name": "open",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "full",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "opening",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "closing",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "blending",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "draining",
+"speed": 8.0
 } ]
 
-[node name="Blender" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12.1175, 18.3677 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Move_Smoothie_Anim"
+length = 0.75
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.8008, 54.9845 ), Vector2( 11.8008, -158.949 ) ]
+}
+
+[node name="Blender" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
-animation = "default"
+animation = "open"
+playing = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -36,6 +107,57 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -95.9435, -118.332, -47.6196, -118.018, -45.7369, 68.0604, -31.9679, 96.6253, 59.5988, 96.6253, 72.8763, 49.2329, 70.9935, -119.273, 84.4865, -119.901, 87.9382, 50.4881, 70.3412, 108.732, -30.2627, 108.22, -45.4231, 133.015, -46.3644, 274.849, -70.8402, 274.535, -71.154, 134.27, -41.3462, 92.1919, -58.2885, 70.5707, -59.8575, -82.2456 )
+polygon = PoolVector2Array( -95.9435, -118.332, -47.6196, -118.018, -45.7369, 68.0604, -31.9679, 96.6253, 59.5988, 96.6253, 72.8763, 49.2329, 72.3111, -264.879, 83.8645, -264.879, 87.9382, 50.4881, 70.3412, 108.732, -30.2627, 108.22, -45.4231, 133.015, -46.3644, 274.849, -70.8402, 274.535, -71.154, 134.27, -41.3462, 92.1919, -58.2885, 70.5707, -59.8575, -82.2456 )
+
+[node name="ButtonArea" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="ButtonCollider" type="CollisionShape2D" parent="ButtonArea" index="0"]
+
+position = Vector2( -84.352, 197.772 )
+shape = SubResource( 2 )
+
+[node name="BlendingTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="FullBlenderTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Smoothie" parent="." index="5" instance=ExtResource( 20 )]
+
+position = Vector2( 11.8008, 54.9845 )
+isSmoothie = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Smoothie" index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Move_Smoothie_Anim = SubResource( 3 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[connection signal="area_entered" from="ButtonArea" to="." method="_on_ButtonArea_area_entered"]
+
+[connection signal="timeout" from="BlendingTimer" to="." method="_on_BlendingTimer_timeout"]
+
+[connection signal="timeout" from="FullBlenderTimer" to="." method="_on_FullBlenderTimer_timeout"]
 
 
