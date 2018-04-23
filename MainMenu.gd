@@ -1,7 +1,10 @@
 extends Node
 
 func _ready():
+	$BackgroundMusic.play()
 	set_process_input(true)
+	$MainMenu/Control.show()
+	$HowToPlay/Control.hide()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -15,3 +18,12 @@ func _input(event):
 
 func _on_StartGame_pressed():
 	get_tree().change_scene("res://Main.tscn")
+
+
+func _on_HowToPlay_pressed():
+	$MainMenu/Control.hide()
+	$HowToPlay/Control.show()
+
+func _on_Back_pressed():
+	$HowToPlay/Control.hide()
+	$MainMenu/Control.show()

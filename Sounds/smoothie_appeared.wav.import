@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/smoothie_appeared.wav-e5c7e61e8b63b80ada89796cbcefc95d.sample"
+
+[deps]
+
+source_file="res://Sounds/smoothie_appeared.wav"
+source_md5="6d0852f934b3776bb8fd0322ed2b1f10"
+
+dest_files=[ "res://.import/smoothie_appeared.wav-e5c7e61e8b63b80ada89796cbcefc95d.sample" ]
+dest_md5="cbb540480850b8974965c057fd7602fc"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

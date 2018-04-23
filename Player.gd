@@ -103,6 +103,7 @@ func take_action():
 		if (Input.is_action_pressed("ui_action") && isHoldingFruit):
 			var fruit = dropFruit()
 			if (fruit != null):
+				$ThrowSound.play()
 				fruit.apply_impulse(Vector2(0, 0), Vector2(30, -60))
 				fruit.set_collision_mask_bit(0, true)
 

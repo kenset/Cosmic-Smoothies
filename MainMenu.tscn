@@ -1,35 +1,63 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://SkyBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sign.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/buttons/sprite_00.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/buttons/sprite_02.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/buttons/sprite_01.png" type="Texture" id=6]
-[ext_resource path="res://8bitlim.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Sprites/buttons/sprite_00.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/buttons/sprite_02.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/buttons/sprite_01.png" type="Texture" id=5]
+[ext_resource path="res://8bitlim.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Sprites/Moon and Stars.png" type="Texture" id=7]
+[ext_resource path="res://FoodCart.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/chef/blending/sprite_0.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/blender/blender_textured.png" type="Texture" id=10]
+[ext_resource path="res://Sign.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sprites/ufo/ufo_sprite_0.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 7 )
+font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="MainMenu" type="Node"]
+[sub_resource type="DynamicFont" id=2]
+
+size = 128
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="MainMenu" type="Node" index="0"]
 
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 722.984, 827.615, 42.1765, 1064.46, 510.62, 330.795, 1241.13 ]
+}
 
 [node name="SkyBackground" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 240, -30 )
 
-[node name="Sign" parent="." index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 840, 300 )
-scale = Vector2( 22.8002, 22.8002 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+[node name="MainMenu" type="CanvasLayer" parent="." index="1"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -37,11 +65,27 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Buttons" type="Node2D" parent="CanvasLayer" index="0"]
+[node name="Control" type="Control" parent="MainMenu" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Buttons" type="Node2D" parent="MainMenu/Control" index="0"]
 
 position = Vector2( 240, -60 )
 
-[node name="StartGame" type="TextureButton" parent="CanvasLayer/Buttons" index="0"]
+[node name="StartGame" type="TextureButton" parent="MainMenu/Control/Buttons" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -62,15 +106,15 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 6 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/Buttons/StartGame" index="0"]
+[node name="Label" type="Label" parent="MainMenu/Control/Buttons/StartGame" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -94,9 +138,8 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HowToPlay" type="TextureButton" parent="CanvasLayer/Buttons" index="1"]
+[node name="HowToPlay" type="TextureButton" parent="MainMenu/Control/Buttons" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -116,15 +159,15 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 6 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/Buttons/HowToPlay" index="0"]
+[node name="Label" type="Label" parent="MainMenu/Control/Buttons/HowToPlay" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -141,14 +184,14 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "How to Play"
+text = "How To Play"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Credits" type="TextureButton" parent="CanvasLayer/Buttons" index="2"]
+[node name="Credits" type="TextureButton" parent="MainMenu/Control/Buttons" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -170,15 +213,15 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 6 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/Buttons/Credits" index="0"]
+[node name="Label" type="Label" parent="MainMenu/Control/Buttons/Credits" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -202,6 +245,516 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[connection signal="pressed" from="CanvasLayer/Buttons/StartGame" to="." method="_on_StartGame_pressed"]
+[node name="Moon and Stars" type="Sprite" parent="MainMenu/Control" index="1"]
+
+modulate = Color( 0.535156, 0.535156, 0.535156, 1 )
+position = Vector2( 1470, 120 )
+scale = Vector2( 0.777344, 0.777344 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="FoodCart" parent="MainMenu/Control" index="2" instance=ExtResource( 8 )]
+
+modulate = Color( 0.59375, 0.59375, 0.59375, 1 )
+position = Vector2( 161.796, 727.784 )
+rotation = 0.282071
+scale = Vector2( 0.711101, 0.711101 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="chef" type="Sprite" parent="MainMenu/Control" index="3"]
+
+modulate = Color( 0.743553, 0.749457, 0.757812, 1 )
+position = Vector2( 350.972, 839.487 )
+rotation = -0.440446
+scale = Vector2( 1, 1 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="blender_textured" type="Sprite" parent="MainMenu/Control" index="4"]
+
+modulate = Color( 0.359123, 0.37865, 0.445312, 1 )
+position = Vector2( 181.399, 512.413 )
+rotation = -0.601488
+scale = Vector2( 0.167174, 0.167174 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sign" parent="MainMenu/Control" index="5" instance=ExtResource( 11 )]
+
+position = Vector2( 810, 300.94 )
+scale = Vector2( 22.8002, 22.8002 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 12 )
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="HowToPlay" type="CanvasLayer" parent="." index="3"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Control" type="Control" parent="HowToPlay" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Back" type="TextureButton" parent="HowToPlay/Control" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 648.0
+margin_top = 827.0
+margin_right = 904.0
+margin_bottom = 1083.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MainMenu" type="Label" parent="HowToPlay/Control/Back" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 105.0
+margin_right = 237.0
+margin_bottom = 149.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Main Menu"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Title" type="Label" parent="HowToPlay/Control" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 452.0
+margin_top = 62.0
+margin_right = 1113.0
+margin_bottom = 199.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "How To Play"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Instructions2" type="Control" parent="HowToPlay/Control" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -60.0
+margin_top = 30.0
+margin_right = -20.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="bg" type="ColorRect" parent="HowToPlay/Control/Instructions2" index="0"]
+
+modulate = Color( 1, 1, 1, 0.46498 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 102.0
+margin_top = 211.0
+margin_right = 1609.0
+margin_bottom = 490.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Text" type="Label" parent="HowToPlay/Control/Instructions2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 140.0
+margin_top = 233.0
+margin_right = 1593.0
+margin_bottom = 471.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Welcome to Cosmic Smoothies, the best place for refreshments on this side of the moon!
+
+You will be playing as Chef T, a smoothie extraordinaire. Your goal is to shoot down the UFOs with your space gun and catch the right fruit for the smoothie. Once you get what you need, make a 3-point shot into the blender and shoot the button to get the smoothie! Make sure to catch the order and deliver it to your umbrella cart for satisfied customers!"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Controls" type="Control" parent="HowToPlay/Control" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 123.0
+margin_right = 44.0
+margin_bottom = 163.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Walk" type="Control" parent="HowToPlay/Control/Controls" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 498.0
+margin_top = 208.0
+margin_right = 538.0
+margin_bottom = 248.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bg" type="ColorRect" parent="HowToPlay/Control/Controls/Walk" index="0"]
+
+modulate = Color( 1, 1, 1, 0.46498 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -170.0
+margin_top = 220.0
+margin_right = 741.0
+margin_bottom = 278.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Text" type="Label" parent="HowToPlay/Control/Controls/Walk" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 121.0
+margin_top = 213.0
+margin_right = 531.0
+margin_bottom = 289.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Walk   -------   Arrow Keys"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Shoot" type="Control" parent="HowToPlay/Control/Controls" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 450.0
+margin_top = 300.0
+margin_right = 490.0
+margin_bottom = 340.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bg" type="ColorRect" parent="HowToPlay/Control/Controls/Shoot" index="0"]
+
+modulate = Color( 1, 1, 1, 0.46498 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -121.0
+margin_top = 220.0
+margin_right = 787.0
+margin_bottom = 278.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Text" type="Label" parent="HowToPlay/Control/Controls/Shoot" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 121.0
+margin_top = 213.0
+margin_right = 531.0
+margin_bottom = 289.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Shoot   -------   Space"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="UseBlender" type="Control" parent="HowToPlay/Control/Controls" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 382.0
+margin_top = 480.0
+margin_right = 422.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bg" type="ColorRect" parent="HowToPlay/Control/Controls/UseBlender" index="0"]
+
+modulate = Color( 1, 1, 1, 0.46498 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -58.0
+margin_top = 220.0
+margin_right = 859.0
+margin_bottom = 278.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Text" type="Label" parent="HowToPlay/Control/Controls/UseBlender" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 121.0
+margin_top = 213.0
+margin_right = 667.0
+margin_bottom = 289.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Use Blender   -------   Shift Space"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Toggle Catch" type="Control" parent="HowToPlay/Control/Controls" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_top = 390.0
+margin_right = 250.0
+margin_bottom = 430.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bg" type="ColorRect" parent="HowToPlay/Control/Controls/Toggle Catch" index="0"]
+
+modulate = Color( 1, 1, 1, 0.46498 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 117.0
+margin_top = 220.0
+margin_right = 1030.0
+margin_bottom = 278.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Text" type="Label" parent="HowToPlay/Control/Controls/Toggle Catch" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 87.0
+margin_top = 213.0
+margin_right = 729.0
+margin_bottom = 289.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Toggle Catch and Shoot   -------   C"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ufo_sprite_0" type="Sprite" parent="HowToPlay/Control" index="4"]
+
+modulate = Color( 0.710938, 0.710938, 0.710938, 1 )
+position = Vector2( 1419.13, 769.83 )
+scale = Vector2( 1.63438, 1.63438 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="pressed" from="MainMenu/Control/Buttons/StartGame" to="." method="_on_StartGame_pressed"]
+
+[connection signal="pressed" from="MainMenu/Control/Buttons/HowToPlay" to="." method="_on_HowToPlay_pressed"]
+
+[connection signal="pressed" from="HowToPlay/Control/Back" to="." method="_on_Back_pressed"]
 
 

@@ -52,7 +52,7 @@ extents = Vector2( 30, 210 )
 custom_solver_bias = 0.0
 extents = Vector2( 586.438, 30 )
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 SHAKE = 0.0

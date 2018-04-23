@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/chef/catching/chef_catch_sprite_0.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/chef/blending/sprite_1.png" type="Texture" id=7]
 [ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/footsteps.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/throw.wav" type="AudioStream" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -148,6 +149,16 @@ process_mode = 1
 wait_time = 0.2
 one_shot = false
 autostart = false
+
+[node name="ThrowSound" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="AnimatedSprite/CatchArea" to="." method="_on_CatchArea_body_entered"]
 

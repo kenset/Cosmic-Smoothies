@@ -2,6 +2,8 @@ extends Node2D
 
 var fruitScene = preload("res://Fruit.tscn")
 var invalid_button_press = preload("res://Sounds/invalid_button_press.wav")
+var throw_sound = preload("res://Sounds/throw.wav")
+var smoothie_appeared_sound = preload("res://Sounds/smoothie_appeared.wav")
 
 var fruitContained = []
 
@@ -40,6 +42,9 @@ func throw_smoothie():
 	smoothieInstance.global_transform = pos
 	smoothieInstance.get_node("AnimatedSprite").scale *= 2
 	smoothieInstance.apply_impulse(Vector2(0, 0), Vector2(-20, -60))
+	
+	$Audio.stream = throw_sound
+	$Audio.play()
 
 func _on_ButtonArea_area_entered(area):
 	if (area.is_in_group("bullets")):
@@ -69,6 +74,8 @@ func _on_FullBlenderTimer_timeout():
 	$ButtonArea/ButtonCollider.disabled = false
 	
 	$Smoothie.show()
+	$Audio.stream = smoothie_appeared_sound
+	$Audio.play()
 	$Smoothie/AnimationPlayer.play("Move_Smoothie_Anim")
 	yield($Smoothie/AnimationPlayer, "animation_finished")
 	
