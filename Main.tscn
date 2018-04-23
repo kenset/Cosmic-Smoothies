@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -11,10 +11,8 @@
 [ext_resource path="res://Sprites/Stars.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Moon and Stars.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Health Bar (1).png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Order Ticket.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Apple.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Banana.png" type="Texture" id=14]
-[ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Lyrical Twilight.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Order.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 
@@ -55,7 +53,7 @@ extents = Vector2( 30, 210 )
 custom_solver_bias = 0.0
 extents = Vector2( 586.438, 30 )
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 SHAKE = 0.0
@@ -187,7 +185,6 @@ STARRINESS = 2
 
 [node name="Camera" type="Camera2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( 508.366, 512.19 )
 anchor_mode = 1
 rotating = false
@@ -299,7 +296,7 @@ texture = ExtResource( 5 )
 [node name="EnemySpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 3.0
 one_shot = false
 autostart = false
 
@@ -309,7 +306,7 @@ position = Vector2( 1170, 630 )
 
 [node name="FoodCart" parent="." index="8" instance=ExtResource( 7 )]
 
-position = Vector2( -180, 810 )
+position = Vector2( -180, 798 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sign" parent="." index="9" instance=ExtResource( 8 )]
@@ -468,32 +465,17 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 position = Vector2( 841.946, 989.137 )
 texture = ExtResource( 11 )
 
-[node name="Order Ticket" type="Sprite" parent="." index="11"]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="11"]
 
-editor/display_folded = true
-position = Vector2( -210, 102 )
-scale = Vector2( 0.909762, 0.909762 )
-texture = ExtResource( 12 )
-
-[node name="Apple" type="Sprite" parent="Order Ticket" index="0"]
-
-position = Vector2( -24.6247, -28.9591 )
-scale = Vector2( 0.400775, 0.400775 )
-texture = ExtResource( 13 )
-
-[node name="Banana" type="Sprite" parent="Order Ticket" index="1"]
-
-position = Vector2( 10.6496, 47.4293 )
-scale = Vector2( 0.293265, 0.293265 )
-texture = ExtResource( 14 )
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="12"]
-
-stream = ExtResource( 15 )
+stream = ExtResource( 12 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="Order" parent="." index="12" instance=ExtResource( 13 )]
+
+position = Vector2( -213.156, 96.8889 )
 
 [connection signal="shooting" from="Player" to="." method="_on_Player_shooting"]
 

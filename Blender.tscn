@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Blender.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/blender/open_anim/button_out/sprite_2.png" type="Texture" id=2]
@@ -48,6 +48,11 @@ animations = [ {
 "loop": true,
 "name": "blending",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "open_button_in",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 8 ) ],
 "loop": false,
@@ -109,6 +114,11 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 58.0765, 10 )
 
 [node name="Blender" type="Node2D" index="0"]
 
@@ -187,10 +197,46 @@ anims/Reset_Smoothie = SubResource( 4 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
+[node name="FruitDetector" type="Area2D" parent="." index="6"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitDetector" index="0"]
+
+position = Vector2( 12.8748, -97.091 )
+shape = SubResource( 5 )
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." index="7"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="ButtonPressTimer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = true
+autostart = false
+
 [connection signal="area_entered" from="ButtonArea" to="." method="_on_ButtonArea_area_entered"]
 
 [connection signal="timeout" from="BlendingTimer" to="." method="_on_BlendingTimer_timeout"]
 
 [connection signal="timeout" from="FullBlenderTimer" to="." method="_on_FullBlenderTimer_timeout"]
+
+[connection signal="body_entered" from="FruitDetector" to="." method="_on_fruit_received"]
+
+[connection signal="timeout" from="ButtonPressTimer" to="." method="_on_ButtonPressTimer_timeout"]
 
 

@@ -13,11 +13,12 @@ func _input(event):
 		toggle_pause()
 
 func toggle_pause():
-	get_tree().paused = !get_tree().paused
-	if (get_tree().paused):
-		$Paused.show()
-	else:
-		$Paused.hide()
+	if (!$GameOver.visible):
+		get_tree().paused = !get_tree().paused
+		if (get_tree().paused):
+			$Paused.show()
+		else:
+			$Paused.hide()
 
 func game_over():
 	$GameOver.show()
@@ -27,6 +28,7 @@ func reset():
 	$Paused.hide()
 
 func _on_RestartButton_pressed():
+	toggle_pause()
 	emit_signal("restart_game")
 
 func _on_ResumeButton_pressed():

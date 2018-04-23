@@ -29,3 +29,10 @@ func splat():
 	$SplatSounds.stream = splatSounds[randi() % 2]
 	$SplatSounds.play()
 	self.set_collision_mask_bit(0, false)
+	
+func get_name():
+	return $AnimatedSprite.animation
+	
+func blend_yourself():
+	hide()
+	queue_free()

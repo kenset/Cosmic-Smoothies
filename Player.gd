@@ -25,12 +25,11 @@ func _input(event):
 			startShooting()
 		else:
 			startCatching()
-	if (event.is_action_pressed("ui_blend_aim") && !isCatching):
+	if (event.is_action_pressed("ui_blend_aim")):
 		startBlending()
-	elif (event.is_action_released("ui_blend_aim") && !isCatching):
+		flip_right()
+	elif (event.is_action_released("ui_blend_aim")):
 		startShooting()
-	elif (event.is_action_released("ui_blend_aim") && isCatching):
-		startCatching()
 
 func _process(delta):
 	move(delta)
@@ -67,6 +66,7 @@ func startCatching():
 	$AnimatedSprite.animation = "catching"
 
 func startBlending():
+	isCatching = false
 	isBlending = true
 	$AnimatedSprite.animation = "blending"
 	var x
@@ -97,7 +97,7 @@ func take_action():
 			get_tree().get_root().add_child(bulletInstance)
 			if (!$GunshotSound.playing):
 				$GunshotSound.play()
-		else:
+		elif (Input.is_action_just_released("ui_action")):
 			emit_signal("stop_shooting")
 	else:
 		if (Input.is_action_pressed("ui_action") && isHoldingFruit):
@@ -106,21 +106,27 @@ func take_action():
 				fruit.apply_impulse(Vector2(0, 0), Vector2(30, -60))
 				fruit.set_collision_mask_bit(0, true)
 
+func flip_right():
+	$AnimatedSprite.flip_h = false
+	$AnimatedSprite/Gunpoint.position.x = 22 if isBlending == false else 135
+	$AnimatedSprite.playing = true
+	$AnimatedSprite/Gunpoint.rotation_degrees = 90 if isBlending else 0
+	
+func flip_left():
+	$AnimatedSprite.flip_h = true
+	$AnimatedSprite/Gunpoint.position.x = -22 if isBlending == false else -135
+	$AnimatedSprite/Gunpoint.rotation_degrees = -90 if isBlending else 0
+	$AnimatedSprite.playing = true
+		
 func move(delta):
 	var velocity = Vector2() 
 	
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
-		$AnimatedSprite.flip_h = false
-		$AnimatedSprite/Gunpoint.position.x = 22 if isBlending == false else 135
-		$AnimatedSprite.playing = true
-		$AnimatedSprite/Gunpoint.rotation_degrees = 90 if isBlending else 0
+		flip_right()
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
-		$AnimatedSprite.flip_h = true
-		$AnimatedSprite/Gunpoint.position.x = -22 if isBlending == false else -135
-		$AnimatedSprite/Gunpoint.rotation_degrees = -90 if isBlending else 0
-		$AnimatedSprite.playing = true
+		flip_left()
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * SPEED
 		if ($FootstepsTimer.is_stopped()):

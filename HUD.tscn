@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 pause_mode = 2
 layer = 1
@@ -36,6 +36,7 @@ __meta__ = {
 
 [node name="Paused" type="Control" parent="." index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -48,7 +49,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -101,6 +101,34 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 text = "Resume"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "custom_fonts" ]
+
+[node name="RestartButton" type="Button" parent="Paused" index="2"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 677.0
+margin_top = 611.0
+margin_right = 924.0
+margin_bottom = 665.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Restart"
 flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Margin", "Pause", "custom_fonts" ]
@@ -203,6 +231,8 @@ percent_visible = true
 _sections_unfolded = [ "Anchor", "Margin", "Percent" ]
 
 [connection signal="pressed" from="Paused/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+
+[connection signal="pressed" from="Paused/RestartButton" to="." method="_on_RestartButton_pressed"]
 
 [connection signal="pressed" from="GameOver/RestartButton" to="." method="_on_RestartButton_pressed"]
 

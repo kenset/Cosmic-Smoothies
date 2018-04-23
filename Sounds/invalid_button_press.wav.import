@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/invalid_button_press.wav-c3b2a9945e8cc8886072861baa037e07.sample"
+
+[deps]
+
+source_file="res://Sounds/invalid_button_press.wav"
+source_md5="422b785329e36114817dd757e82e1746"
+
+dest_files=[ "res://.import/invalid_button_press.wav-c3b2a9945e8cc8886072861baa037e07.sample" ]
+dest_md5="5153c3bf9b1b00fb1c86d60b3de0d99a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
