@@ -79,7 +79,7 @@ use_filter = false
 font_data = ExtResource( 13 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="MainMenu" type="Node" index="0"]
+[node name="MainMenu" type="Node"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -812,7 +812,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Enemy" parent="HowToPlay/Control" index="4" instance=ExtResource( 12 )]
 
-position = Vector2( 1410, 722.56 )
+position = Vector2( 1410, 868.825 )
 scale = Vector2( 4.04734, 4.04734 )
 HIDE_FRUIT = true
 
@@ -939,9 +939,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Trey" type="Control" parent="Credits/Control/Credits" index="0"]
 
@@ -1028,9 +1025,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="bg" type="ColorRect" parent="Credits/Control/Credits/Taylor" index="0"]
 
@@ -1122,9 +1116,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 150.0
-margin_top = 240.0
+margin_top = 235.0
 margin_right = 1170.0
-margin_bottom = 270.0
+margin_bottom = 265.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

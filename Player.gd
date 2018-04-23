@@ -26,6 +26,9 @@ func _input(event):
 		else:
 			startCatching()
 	if (event.is_action_pressed("ui_blend_aim")):
+		if (isCatching):
+			if (isHoldingFruit):
+				dropFruit()
 		startBlending()
 		flip_right()
 	elif (event.is_action_released("ui_blend_aim")):
