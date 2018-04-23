@@ -30,7 +30,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Enemy" type="Area2D" groups=[
+[node name="Enemy" type="Area2D" index="0" groups=[
 "enemies",
 ]]
 

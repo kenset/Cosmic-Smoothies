@@ -61,7 +61,7 @@ func _on_ButtonArea_area_entered(area):
 			$ButtonPressTimer.start()
 
 func _on_ButtonArea_area_exited(area):
-	if (area.is_in_group("Player")):
+	if (area.is_in_group("Player") && $AnimatedSprite.animation == "open_button_in"):
 		$ButtonPressTimer.start()
 
 func _on_BlendingTimer_timeout():

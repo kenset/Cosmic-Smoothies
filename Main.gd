@@ -69,6 +69,9 @@ func game_over():
 	$HUD.game_over()
 	$Player.set_process(false)
 	$Player.set_process_input(false)
+	$Player/AnimatedSprite.animation = "shooting"
+	$Player/AnimatedSprite.stop()
+	$Player/AnimatedSprite.frame = 0
 	$EnemySpawnTimer.stop()
 
 func _on_Player_shooting():
