@@ -47,8 +47,9 @@ func throw_smoothie():
 	$Audio.play()
 
 func _on_ButtonArea_area_entered(area):
-	if (area.is_in_group("bullets")):
-		area.queue_free()
+	if (area.is_in_group("bullets") || area.is_in_group("Player")):
+		if (area.is_in_group("bullets")):
+			area.queue_free()
 		$AnimatedSprite.play("open_button_in")
 		if (!$Audio.playing && $ButtonPressTimer.is_stopped()):
 			$Audio.stream = invalid_button_press
@@ -56,8 +57,12 @@ func _on_ButtonArea_area_entered(area):
 		var fruit = get_tree().get_nodes_in_group("fruit_to_blend")
 		if (fruit.size() != 0):
 			blend()
-		else:
+		elif (area.is_in_group("bullets")):
 			$ButtonPressTimer.start()
+
+func _on_ButtonArea_area_exited(area):
+	if (area.is_in_group("Player")):
+		$ButtonPressTimer.start()
 
 func _on_BlendingTimer_timeout():
 	emit_signal("blending_finished")

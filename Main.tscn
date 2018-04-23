@@ -52,6 +52,9 @@ extents = Vector2( 586.438, 30 )
 [node name="Main" type="Node"]
 
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 SHAKE = 0.0
 
 [node name="HUD" parent="." index="0" instance=ExtResource( 2 )]

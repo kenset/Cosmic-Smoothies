@@ -143,7 +143,7 @@ func move(delta):
 	
 	position += velocity * delta
 	
-	position.x = clamp(position.x, -100, screensize.x)
+	position.x = clamp(position.x, -100, 1070)
 
 
 func _on_CatchArea_body_entered(body):

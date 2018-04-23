@@ -103,6 +103,8 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="MainMenu" index="0"]
 
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -369,7 +371,6 @@ bus = "Master"
 
 [node name="HowToPlay" type="CanvasLayer" parent="." index="3"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -378,7 +379,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="HowToPlay" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -467,7 +467,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Instructions2" type="Control" parent="HowToPlay/Control" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -493,7 +492,7 @@ anchor_bottom = 0.0
 margin_left = 102.0
 margin_top = 211.0
 margin_right = 1609.0
-margin_bottom = 490.0
+margin_bottom = 468.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -618,7 +617,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Shoot" type="Control" parent="HowToPlay/Control/Controls" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -663,10 +661,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 121.0
-margin_top = 213.0
-margin_right = 531.0
-margin_bottom = 289.0
+margin_left = -13.0
+margin_top = 207.0
+margin_right = 527.0
+margin_bottom = 283.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -674,7 +672,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 3 )
-text = "Shoot   -------   Space"
+text = "Shoot or Throw   -------   Space"
 align = 1
 valign = 1
 autowrap = true
@@ -843,6 +841,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="Credits" index="0"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
