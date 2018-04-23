@@ -7,10 +7,10 @@ path="res://.import/sprite_0.png-2ef5305f6c4db69fa3bb64ac6ff64e5c.stex"
 [deps]
 
 source_file="res://Sprites/food_cart/sprite_0.png"
-source_md5="cc2b27c26235e543e1ada268d86b3237"
+source_md5="b4e9c550f381306910e9a786a6f44a62"
 
 dest_files=[ "res://.import/sprite_0.png-2ef5305f6c4db69fa3bb64ac6ff64e5c.stex" ]
-dest_md5="cbf7c182d19b7d4efd15f99138f9f345"
+dest_md5="3ee7946c243d02d9f7697fa45f3c05a3"
 
 [params]
 

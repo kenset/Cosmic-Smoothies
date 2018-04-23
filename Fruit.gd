@@ -19,11 +19,6 @@ func _ready():
 		fruitIndex = randi() % fruitTypes.size()
 		$AnimatedSprite.animation = fruitTypes[fruitIndex]
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
 func splat():
 	$AnimatedSprite.position.y = -30
 	if isSmoothie:

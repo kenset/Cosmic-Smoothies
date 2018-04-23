@@ -133,7 +133,7 @@ func move(delta):
 	
 	position += velocity * delta
 	
-	position.x = clamp(position.x, -270, screensize.x)
+	position.x = clamp(position.x, -100, screensize.x)
 
 
 func _on_CatchArea_body_entered(body):
@@ -154,3 +154,9 @@ func _on_CatchArea_body_entered(body):
 
 func _on_FootstepsTimer_timeout():
 	$FootstepsSound.play()
+
+func deliver_smoothie():
+	if (isHoldingFruit && $Fruit.isSmoothie):
+		startShooting()
+		isHoldingFruit = false
+		$Fruit.queue_free()

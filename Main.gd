@@ -9,13 +9,8 @@ func _ready():
 	randomize()
 	$Camera.make_current()
 	$HUD.connect("restart_game", self, "_reload_game")
-	set_process_input(true)
 	$BackgroundMusic.play()
 	start_game()
-
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit()
 
 func _process(delta):
 	$Camera.set_offset(Vector2( \
@@ -51,10 +46,7 @@ func spawn_enemy():
 		
 	enemyPath.get_node("PathFollow2D").add_child(enemy)
 	enemyPath.connect("path_completed", enemy, "_path_completed")
-
-func _trey_test(args):
-	print(args)
-
+	
 func take_damage(damage):
 	$HUD/HealthBar.value -= damage
 	if ($HUD/HealthBar.value <= 0):
@@ -82,10 +74,8 @@ func _on_Floor_area_entered(area):
 		take_damage(area.DAMAGE_GIVEN)
 		area.destroy_enemy()
 
-
 func _on_EnemySpawnTimer_timeout():
 	spawn_enemy()
-
 
 func _on_Floor_body_entered(body):
 	if (body.is_in_group("fruit")):

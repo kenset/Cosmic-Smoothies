@@ -55,7 +55,7 @@ extents = Vector2( 30, 210 )
 custom_solver_bias = 0.0
 extents = Vector2( 586.438, 30 )
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 SHAKE = 0.0
@@ -309,8 +309,7 @@ position = Vector2( 1170, 630 )
 
 [node name="FoodCart" parent="." index="8" instance=ExtResource( 7 )]
 
-position = Vector2( -90, 810 )
-scale = Vector2( 1.42188, 1.42188 )
+position = Vector2( -180, 810 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sign" parent="." index="9" instance=ExtResource( 8 )]
