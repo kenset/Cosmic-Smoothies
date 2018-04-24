@@ -20,12 +20,7 @@ func _process(delta):
     ))
 
 func _reload_game():
-	for child in self.get_children():
-		if (child.is_in_group("enemies") || child.is_in_group("fruit") || child.is_in_group("orders")):
-			child.queue_free()
-	$Player.resetPlayer()
-	$Blender.reset_blender()
-	start_game()
+	get_tree().reload_current_scene()
 
 func start_game():
 	$HUD/HealthBar.value = 100

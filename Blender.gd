@@ -26,10 +26,6 @@ func blend():
 	$AnimatedSprite.play("blending")
 	$BlendingTimer.start()
 
-func reset_blender():
-	$AnimatedSprite.play("open")
-	$ClosedLidStaticBody/ClosedLidCollider.disabled = true
-
 func throw_smoothie():
 	var smoothieInstance = fruitScene.instance()
 	smoothieInstance.isSmoothie = true

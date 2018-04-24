@@ -83,13 +83,6 @@ func startBlending():
 	$AnimatedSprite/Gunpoint.position = Vector2(x, 12)
 	$AnimatedSprite/Gunpoint.rotation_degrees = rot
 
-func resetPlayer():
-	for child in self.get_children():
-		if (child.is_in_group("fruit")):
-			child.queue_free()
-	startShooting()
-	position = startingPos
-
 func take_action():
 	if (!isCatching):
 		if (Input.is_action_pressed("ui_action")):
