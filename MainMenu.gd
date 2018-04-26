@@ -6,6 +6,9 @@ func _ready():
 	$MainMenu/Control.show()
 	$HowToPlay/Control.hide()
 	$Credits/Control.hide()
+	
+	if OS.get_name()=="HTML5":
+		OS.set_window_maximized(true)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

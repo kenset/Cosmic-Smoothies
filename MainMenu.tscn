@@ -36,7 +36,7 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 
 size = 30
 use_mipmaps = false
@@ -44,7 +44,7 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 
 size = 30
 use_mipmaps = false
@@ -79,7 +79,7 @@ use_filter = false
 font_data = ExtResource( 13 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="MainMenu" type="Node"]
+[node name="MainMenu" type="Node" index="0"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -342,7 +342,6 @@ _sections_unfolded = [ "Visibility" ]
 modulate = Color( 0.743553, 0.749457, 0.757812, 1 )
 position = Vector2( 350.972, 839.487 )
 rotation = -0.440446
-scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Visibility" ]
 
@@ -371,6 +370,7 @@ bus = "Master"
 
 [node name="HowToPlay" type="CanvasLayer" parent="." index="3"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -518,7 +518,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Welcome to Cosmic Smoothies, the best place for refreshments on this side of the moon!
 
 You will be playing as Chef T, a smoothie extraordinaire. Your goal is to shoot down the UFOs with your space gun and catch the right fruit for the smoothie. Once you get what you need, make a 3-point shot into the blender and shoot the button to get the smoothie! Make sure to catch the order and deliver it to your umbrella cart for satisfied customers!"
@@ -605,7 +605,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Walk   -------   Arrow Keys"
 align = 1
 valign = 1
@@ -671,7 +671,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Shoot or Throw   -------   Space"
 align = 1
 valign = 1
@@ -738,7 +738,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Use Blender   -------   Shift Space"
 align = 1
 valign = 1
@@ -804,7 +804,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Toggle Catch and Shoot   -------   C"
 align = 1
 valign = 1
@@ -1004,7 +1004,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Trey   -------   Code and Sound Effects"
 align = 1
 valign = 1
@@ -1068,7 +1068,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Taylor   -------   Art and Animation"
 align = 1
 valign = 1
